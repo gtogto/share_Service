@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
+        /* Slider image*/
         for (int i = 0; i < 3; i++) {
             SliderItem sliderItem = new SliderItem();
             sliderItem.setDescription("Office Image " + i);
