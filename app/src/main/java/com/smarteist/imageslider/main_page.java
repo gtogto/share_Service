@@ -1,16 +1,16 @@
 package com.smarteist.imageslider;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toolbar;
 
-import com.smarteist.autoimageslider.SliderView;
-import androidx.appcompat.app.AppCompatActivity;
-import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -20,11 +20,20 @@ import com.smarteist.imageslider.Model.SliderItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 public class main_page extends AppCompatActivity {
+
+    private DrawerLayout mDrawerLayout;
+    private Context context = this;
 
     SliderView sliderView;
     private SliderAdapterExample adapter;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +61,23 @@ public class main_page extends AppCompatActivity {
         });
 
         test();
+
     }
+
+    private void setSupportActionBar(Toolbar toolbar) {
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ // 뒤로가기 버튼 눌렀을 때
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     public void test(){
         List<SliderItem> sliderItemList = new ArrayList<>();
