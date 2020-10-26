@@ -10,4 +10,8 @@
     <color name="color_whiteGray1">#E5E5E5</color>
     <color name="color_Gray1">#999999</color>
     <color name="color_whiteBlue1">#7FE9FF</color>
+    <color name="color_purple1">#6978F8</color>
+    <color name="color_purple2">#5629EE</color>
+    <color name="color_purple3">#451FBE</color>
+
 </resources>
