@@ -68,7 +68,7 @@ public class main_page extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.main_navigationmenu, menu);
         return true;
     }
 
