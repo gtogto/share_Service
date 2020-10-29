@@ -3,13 +3,18 @@ package com.smarteist.imageslider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -19,6 +24,7 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.imageslider.Model.SliderItem;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +38,11 @@ public class main_page extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private Context context = this;
+    //SliderView sliderView;
+    //private SliderAdapterExample adapter;
 
-    SliderView sliderView;
-    private SliderAdapterExample adapter;
+    private static TextView text_item_1, text_item_2, text_item_3, text_item_4, text_item_5, text_item_6, text_item_7, text_item_8, text_item_9;
+    //android:id="@+id/text_item_1"
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -42,9 +50,8 @@ public class main_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page_layout);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
+        /*
         sliderView = findViewById(R.id.imageSlider);
-
         adapter = new SliderAdapterExample(this);
         sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
@@ -54,16 +61,51 @@ public class main_page extends AppCompatActivity {
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
-        sliderView.startAutoCycle();
+        sliderView.startAutoCycle();*/
 
+        text_item_1 = (TextView)findViewById(R.id.text_item_1); text_item_2 = (TextView)findViewById(R.id.text_item_2);
+        text_item_3 = (TextView)findViewById(R.id.text_item_3); text_item_4 = (TextView)findViewById(R.id.text_item_4);
+        text_item_5 = (TextView)findViewById(R.id.text_item_5); text_item_6 = (TextView)findViewById(R.id.text_item_6);
+        text_item_7 = (TextView)findViewById(R.id.text_item_7); text_item_8 = (TextView)findViewById(R.id.text_item_8);
+        text_item_9 = (TextView)findViewById(R.id.text_item_9);
+
+        text_item_1.setTextSize(15);
+        text_item_1.setText("[압구정] 우노빌딩 10,000sys/h");
+
+        text_item_2.setTextSize(15);
+        text_item_2.setText("[홍대] 회의실 10,000sys/h");
+
+        text_item_3.setTextSize(15);
+        text_item_3.setText("[논현역] 공유오피스 8,000sys/h");
+
+        text_item_4.setTextSize(15);
+        text_item_4.setText("[판교역] 우노빌딩 10,000sys/h");
+
+        text_item_5.setTextSize(15);
+        text_item_5.setText("[압구정] 우노빌딩 10,000sys/h");
+
+        text_item_6.setTextSize(15);
+        text_item_6.setText("[압구정] 우노빌딩 10,000sys/h");
+
+        text_item_7.setTextSize(15);
+        text_item_7.setText("[압구정] 우노빌딩 10,000sys/h");
+
+        text_item_8.setTextSize(15);
+        text_item_8.setText("[압구정] 우노빌딩 10,000sys/h");
+
+        text_item_9.setTextSize(15);
+        text_item_9.setText("[압구정] 우노빌딩 10,000sys/h");
+
+        /*
         sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
             @Override
             public void onIndicatorClicked(int position) {
                 Log.i("GGG", "onIndicatorClicked: " + sliderView.getCurrentPagePosition());
             }
         });
-
-        test();
+        */
+        //test();
+        getAppKeyHash();
 
     }
 
@@ -95,15 +137,15 @@ public class main_page extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    /*
     public void test(){
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
         for (int i = 0; i < 3; i++) {
             SliderItem sliderItem = new SliderItem();
-            sliderItem.setDescription("Slider Item " + i);
+            //sliderItem.setDescription("Slider Item " + i);
             if (i == 0) {
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92438400-b4b74000-f1e3-11ea-9e94-2f214e861572.png");
+                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97400217-0fdaf880-1932-11eb-8c52-e1ae418417e5.png");
             } else if (i == 1){
                 sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92438408-b8e35d80-f1e3-11ea-889f-c5c0649ff4d8.png");
             } else if (i == 2){
@@ -113,11 +155,28 @@ public class main_page extends AppCompatActivity {
         }
         adapter.renewItems(sliderItemList);
     }
+    */
 
     public void onClick_img1(View v) {        //Map info Activity     //Map Button
         final Intent i = new Intent(this, MainActivity.class);
         startActivityForResult(i, 201);
         //startActivity(i);
+    }
+
+    private void getAppKeyHash() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                Log.e("Hash key", something);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString());
+        }
     }
 
 }

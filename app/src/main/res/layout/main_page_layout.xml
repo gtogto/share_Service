@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@color/cardview_light_background"
-    tools:context=".main_page"
-    >
+    android:background="#F0F5FB"
+    tools:context=".main_page">
 
     <!-- Compulsory Child Container required for ScrollView -->
     <LinearLayout
@@ -22,33 +20,35 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_slider_mainActivity"
+            <ImageView
+                android:id="@+id/main_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/main_welcome"
+                android:onClick="onClick_img1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="8dp">
-
-                <com.smarteist.autoimageslider.SliderView
-                    android:id="@+id/imageSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    app:sliderAnimationDuration="600"
-                    app:sliderAutoCycleDirection="back_and_forth"
-                    app:sliderIndicatorAnimationDuration="600"
-                    app:sliderIndicatorEnabled="true"
-                    app:sliderIndicatorGravity="center_horizontal|bottom"
-                    app:sliderIndicatorMargin="15dp"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="#5A5A5A"
-                    app:sliderIndicatorUnselectedColor="#FFF"
-                    app:sliderScrollTimeInSec="1" />
-
-            </androidx.cardview.widget.CardView>
-
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="새로운 공간을 찾으시나요?"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:fontFamily="sans-serif-black"></TextView>
 
         </LinearLayout>
 
@@ -63,33 +63,39 @@
                 android:id="@+id/img1"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img1"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_01"
                 android:onClick="onClick_img1"/>
 
             <ImageView
                 android:id="@+id/img2"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img2" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_14"/>
 
             <ImageView
                 android:id="@+id/img3"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img3" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_04" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/text_item_1"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -100,6 +106,7 @@
                 app:fontFamily="sans-serif-black"></TextView>
 
             <TextView
+                android:id="@+id/text_item_2"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -111,6 +118,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/text_item_3"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -135,32 +143,38 @@
                 android:id="@+id/img4"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img4" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_05" />
 
             <ImageView
                 android:id="@+id/img5"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img5" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_07" />
 
             <ImageView
                 android:id="@+id/img6"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img6" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_08" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/text_item_4"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -172,6 +186,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/text_item_5"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -183,6 +198,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/text_item_6"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -207,32 +223,37 @@
                 android:id="@+id/img7"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img7" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_09" />
 
             <ImageView
                 android:id="@+id/img8"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img8" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_10" />
 
             <ImageView
                 android:id="@+id/img9"
                 android:layout_width="135dp"
                 android:layout_height="100dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/img9" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/office_sample_11" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
             <TextView
+                android:id="@+id/text_item_7"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -244,6 +265,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/text_item_8"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"
@@ -255,6 +277,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/text_item_9"
                 android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/img1"

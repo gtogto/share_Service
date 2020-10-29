@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_light_background"
+    android:background="#F0F5FB"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="8dp">
+        android:layout_margin="8dp"
+        app:cardCornerRadius="4dp">
 
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/imageSlider"
@@ -24,7 +24,7 @@
             app:sliderIndicatorAnimationDuration="600"
             app:sliderIndicatorEnabled="true"
             app:sliderIndicatorGravity="center_horizontal|bottom"
-            app:sliderIndicatorMargin="15dp"
+            app:sliderIndicatorMargin="5dp"
             app:sliderIndicatorOrientation="horizontal"
             app:sliderIndicatorPadding="3dp"
             app:sliderIndicatorRadius="2dp"
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="1dp"
             android:layout_marginBottom="5dp"
             android:scaleType="center"
             android:src="@drawable/linie_albastra_lr"></ImageView>
@@ -54,50 +54,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="[강남] 강남역 원비지니스센터 200,000원/월"
+            android:text="Get shared office name information"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             app:fontFamily="sans-serif-black"
-            android:textSize="15sp">
+            android:textSize="20sp"
+            android:textStyle="bold">
         </TextView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/img1"
-            android:text="지하철 2호선 강남역 5천출구 도보 7분"
+            android:text="Get shared office location information"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="15sp">
+            android:textSize="20sp">
         </TextView>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:scaleType="center"
-            android:src="@drawable/linie_albastra_lr"></ImageView>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:src="@drawable/office_info_1" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:scaleType="center"
-            android:src="@drawable/linie_albastra_lr"></ImageView>
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="130dp"
-            android:src="@drawable/migeon_location" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -110,10 +83,39 @@
 
         <ImageView
             android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/office_info_1_1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="center"
+            android:src="@drawable/linie_albastra_lr"></ImageView>
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="center"
+            android:src="@drawable/linie_albastra_lr"></ImageView>
+
+        <RelativeLayout
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick_Book"
-            android:src="@drawable/book_btn"
-            >
+            android:src="@drawable/book_btn">
 
         </ImageView>
 

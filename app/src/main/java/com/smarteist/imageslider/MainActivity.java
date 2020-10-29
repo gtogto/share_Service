@@ -5,15 +5,17 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
+import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.imageslider.Model.SliderItem;
+
+//import net.daum.android.map.MapView;
+import net.daum.mf.map.api.MapView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         sliderView = findViewById(R.id.imageSlider);
 
-
         adapter = new SliderAdapterExample(this);
         sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
+
+        MapView mapView = new MapView(this);
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        mapViewContainer.addView(mapView);
 
 
         sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
@@ -76,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         /* Slider image*/
         for (int i = 0; i < 3; i++) {
             SliderItem sliderItem = new SliderItem();
-            sliderItem.setDescription("Office Image " + i);
+            //sliderItem.setDescription("Office Image " + i);
             if (i == 0) {
                 sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92436005-9b5fc500-f1de-11ea-90de-5472c738a66c.png");
             } else if (i == 1){
