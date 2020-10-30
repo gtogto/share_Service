@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
@@ -29,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
     SliderView sliderView;
     private SliderAdapterExample adapter;
-
+    private static TextView office_name_txt, office_loc_txt;
+    private static MapView mapView;
+    private static ViewGroup mapViewContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,14 +52,17 @@ public class MainActivity extends AppCompatActivity {
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
 
-        MapView mapView = new MapView(this);
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(37.5514579595, 126.951949155);
+        office_name_txt = (TextView) findViewById(R.id.office_name_txt);
+        office_loc_txt = (TextView) findViewById(R.id.office_loc_txt);
+
+        mapView = new MapView(this);
+        mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
         mapView.setMapCenterPoint(mapPoint, true);
         mapViewContainer.addView(mapView);
 
         MapPOIItem marker = new MapPOIItem();
-        marker.setItemName("한세사이버보안고등학교");
+        marker.setItemName("판교글로벌R&D센터");
         marker.setTag(0);
         marker.setMapPoint(mapPoint);
         // 기본으로 제공하는 BluePin 마커 모양.
@@ -72,21 +78,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        String name = intent.getExtras().getString("name"); /*String형*/
+        office_name_txt.setText(name);
+
         test();
 
+    }
+
+    @Override
+    public void finish() {
+        mapViewContainer.removeView(mapView);
+        super.finish();
     }
 
     public void test(){
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             SliderItem sliderItem = new SliderItem();
             //sliderItem.setDescription("Slider Item " + i);
             if (i == 0) {
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92442788-732a9300-f1eb-11ea-9a54-da5a90080d89.PNG");
+                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662373-37f56380-1aba-11eb-9a0c-656c07b54f87.jpg");
             } else if (i == 1){
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92442793-745bc000-f1eb-11ea-8af0-7c6515577001.PNG");
+                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662375-388dfa00-1aba-11eb-876e-46510abfa96d.jpg");
+            } else if (i == 2){
+                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662406-4b083380-1aba-11eb-917b-d1edf6f94d6e.jpg");
             }
+
             sliderItemList.add(sliderItem);
         }
         adapter.renewItems(sliderItemList);
