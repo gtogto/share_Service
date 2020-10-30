@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#F0F5FB"
-    tools:context=".main_page">
+    android:background="#F0F5FB">
 
     <!-- Compulsory Child Container required for ScrollView -->
     <LinearLayout
@@ -46,9 +45,10 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="새로운 공간을 찾으시나요?"
+                android:textColor="@color/color_purple2"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:fontFamily="sans-serif-black"></TextView>
+                app:fontFamily="@font/anton"></TextView>
 
         </LinearLayout>
 

@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".main_page">
+        <activity android:name="com.smarteist.imageslider.main_page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,14 +24,17 @@
         </activity>
 
         <!-- Office View Details -->
-        <activity android:name=".MainActivity"> </activity>
-
-        <activity android:name=".Book_img_1"/>
-        <activity android:name=".Book_img_2"/>
-        <activity android:name=".Book_img_3"/>
-        <activity android:name=".Book_img_4"/>
+        <activity android:name="com.smarteist.imageslider.MainActivity">
+        </activity>
+        <activity android:name="com.smarteist.imageslider.Book_img_1"/>
+        <activity android:name="com.smarteist.imageslider.Book_img_2"/>
+        <activity android:name="com.smarteist.imageslider.Book_img_3"/>
+        <activity android:name="com.smarteist.imageslider.Book_img_4"/>
 
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="781fc7ecc485c7e5cb6f9f823ed44136"/>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
