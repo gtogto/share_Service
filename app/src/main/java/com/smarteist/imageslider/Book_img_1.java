@@ -47,4 +47,9 @@ public class Book_img_1 extends AppCompatActivity {
         startActivityForResult(i, 201);
         //startActivity(i);
     }*/
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

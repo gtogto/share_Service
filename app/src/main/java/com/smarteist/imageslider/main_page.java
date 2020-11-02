@@ -162,6 +162,7 @@ public class main_page extends AppCompatActivity {
         final Intent intent = new Intent(this, MainActivity.class);
         startActivityForResult(intent, 201);
         intent.putExtra("name", "[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
+        intent.putExtra("office_Num",1);
         startActivity(intent);
     }
 
@@ -179,6 +180,11 @@ public class main_page extends AppCompatActivity {
             // TODO Auto-generated catch block
             Log.e("name not found", e.toString());
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
 }

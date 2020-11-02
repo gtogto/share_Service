@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private static TextView office_name_txt, office_loc_txt;
     private static MapView mapView;
     private static ViewGroup mapViewContainer;
+    private static int Office_Name_Num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +80,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        String name = intent.getExtras().getString("name"); /*String형*/
-        office_name_txt.setText(name);
+        //String name = intent.getExtras().getString("name"); /*String형*/
+        //office_name_txt.setText(name);
+        int office_Num = intent.getExtras().getInt("office_Num"); /*int형*/
+        System.out.println("get intent int value : " + office_Num);
+        Office_Name_Num = office_Num;
 
         test();
+        setOfficeName();
 
     }
 
@@ -90,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     public void finish() {
         mapViewContainer.removeView(mapView);
         super.finish();
+        getIntent().getExtras().remove("name");
     }
 
     public void test(){
@@ -109,6 +115,19 @@ public class MainActivity extends AppCompatActivity {
             sliderItemList.add(sliderItem);
         }
         adapter.renewItems(sliderItemList);
+    }
+
+    public void setOfficeName() {
+        System.out.println("office number is : " + Office_Name_Num);
+        switch (Office_Name_Num){
+            case 1:
+                office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
+                break;
+            default:
+                office_name_txt.setText("Not receiving shared office name");
+                break;
+        }
+
     }
 
     public void renewItems(View view) {
@@ -147,6 +166,11 @@ public class MainActivity extends AppCompatActivity {
         final Intent i = new Intent(this, Book_img_1.class);
         startActivityForResult(i, 201);
         //startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
 
