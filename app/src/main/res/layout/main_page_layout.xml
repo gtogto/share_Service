@@ -27,7 +27,7 @@
                 android:paddingRight="5dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/main_welcome"
-                android:onClick="onClick_img1"/>
+                />
 
         </LinearLayout>
 
@@ -76,7 +76,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_14"/>
+                android:src="@drawable/office_sample_14"
+                android:onClick="onClick_img2"/>
 
             <ImageView
                 android:id="@+id/img3"
@@ -85,7 +86,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_04" />
+                android:src="@drawable/office_sample_04"
+                android:onClick="onClick_img3"/>
         </LinearLayout>
 
         <LinearLayout
@@ -146,7 +148,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_05" />
+                android:src="@drawable/office_sample_05"
+                android:onClick="onClick_img4"/>
 
             <ImageView
                 android:id="@+id/img5"
@@ -155,7 +158,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_07" />
+                android:src="@drawable/office_sample_07"
+                android:onClick="onClick_img5"/>
 
             <ImageView
                 android:id="@+id/img6"
@@ -164,7 +168,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_08" />
+                android:src="@drawable/office_sample_08"
+                android:onClick="onClick_img6"/>
         </LinearLayout>
 
         <LinearLayout
@@ -226,7 +231,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_09" />
+                android:src="@drawable/office_sample_09"
+                android:onClick="onClick_img7"/>
 
             <ImageView
                 android:id="@+id/img8"
@@ -235,7 +241,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_10" />
+                android:src="@drawable/office_sample_10"
+                android:onClick="onClick_img8"/>
 
             <ImageView
                 android:id="@+id/img9"
@@ -244,7 +251,8 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/office_sample_11" />
+                android:src="@drawable/office_sample_11"
+                android:onClick="onClick_img9"/>
         </LinearLayout>
 
         <LinearLayout

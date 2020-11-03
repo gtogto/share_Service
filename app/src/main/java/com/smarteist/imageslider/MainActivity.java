@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private static MapView mapView;
     private static ViewGroup mapViewContainer;
     private static int Office_Name_Num;
+    private static MapPoint mapPoint;
+    private static MapPOIItem marker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,19 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
         mapView = new MapView(this);
         mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
-        mapView.setMapCenterPoint(mapPoint, true);
-        mapViewContainer.addView(mapView);
-
-        MapPOIItem marker = new MapPOIItem();
-        marker.setItemName("판교글로벌R&D센터");
-        marker.setTag(0);
-        marker.setMapPoint(mapPoint);
-        // 기본으로 제공하는 BluePin 마커 모양.
-        marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
-        // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
-        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
-        mapView.addPOIItem(marker);
 
         sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
             @Override
@@ -79,16 +69,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        //String name = intent.getExtras().getString("name"); /*String형*/
-        //office_name_txt.setText(name);
-        int office_Num = intent.getExtras().getInt("office_Num"); /*int형*/
-        System.out.println("get intent int value : " + office_Num);
-        Office_Name_Num = office_Num;
+        Intent intent = new Intent(this.getIntent());
+        Office_Name_Num = intent.getIntExtra("office_Num", 1);
 
-        test();
-        setOfficeName();
-
+        setUp_Office_image();
+        setUp_Office_name();
     }
 
     @Override
@@ -96,38 +81,6 @@ public class MainActivity extends AppCompatActivity {
         mapViewContainer.removeView(mapView);
         super.finish();
         getIntent().getExtras().remove("name");
-    }
-
-    public void test(){
-        List<SliderItem> sliderItemList = new ArrayList<>();
-        //dummy data
-        for (int i = 0; i < 3; i++) {
-            SliderItem sliderItem = new SliderItem();
-            //sliderItem.setDescription("Slider Item " + i);
-            if (i == 0) {
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662373-37f56380-1aba-11eb-9a0c-656c07b54f87.jpg");
-            } else if (i == 1){
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662375-388dfa00-1aba-11eb-876e-46510abfa96d.jpg");
-            } else if (i == 2){
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662406-4b083380-1aba-11eb-917b-d1edf6f94d6e.jpg");
-            }
-
-            sliderItemList.add(sliderItem);
-        }
-        adapter.renewItems(sliderItemList);
-    }
-
-    public void setOfficeName() {
-        System.out.println("office number is : " + Office_Name_Num);
-        switch (Office_Name_Num){
-            case 1:
-                office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
-                break;
-            default:
-                office_name_txt.setText("Not receiving shared office name");
-                break;
-        }
-
     }
 
     public void renewItems(View view) {
@@ -166,6 +119,86 @@ public class MainActivity extends AppCompatActivity {
         final Intent i = new Intent(this, Book_img_1.class);
         startActivityForResult(i, 201);
         //startActivity(i);
+    }
+
+    public void setUp_Office_name() {
+        switch (Office_Name_Num) {
+            case 1:
+                office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+
+                marker = new MapPOIItem();
+                marker.setItemName("판교글로벌R&D센터");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                // 기본으로 제공하는 BluePin 마커 모양.
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+
+                break;
+            case 2:
+                office_name_txt.setText("[홍대] 회의실 GARAGE 강남점 - 가라지 강남점 지정데스크");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.52652835684546, 126.86109378702771);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+
+                marker = new MapPOIItem();
+                marker.setItemName("판교글로벌R&D센터");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                // 기본으로 제공하는 BluePin 마커 모양.
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+
+                break;
+            default:
+                System.out.println("Unable to get a office name");
+                break;
+        }
+    }
+
+    public void setUp_Office_image(){
+        List<SliderItem> sliderItemList = new ArrayList<>();
+        //dummy data
+        for (int i = 0; i < 3; i++) {
+            SliderItem sliderItem = new SliderItem();
+            //sliderItem.setDescription("Slider Item " + i);
+            switch (Office_Name_Num) {
+                case 1:
+                    if (i == 0) {
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662373-37f56380-1aba-11eb-9a0c-656c07b54f87.jpg");
+                    } else if (i == 1){
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662375-388dfa00-1aba-11eb-876e-46510abfa96d.jpg");
+                    } else if (i == 2){
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662406-4b083380-1aba-11eb-917b-d1edf6f94d6e.jpg");
+                    }
+                    sliderItemList.add(sliderItem);
+
+                    break;
+
+                case 2:
+                    if (i == 0) {
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97950108-26bd9700-1dd9-11eb-966a-eb829a9c8f76.jpg");
+                    } else if (i == 1){
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97950111-291ff100-1dd9-11eb-93a1-ae0a86936e8e.jpg");
+                    } else if (i == 2){
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97950112-29b88780-1dd9-11eb-9408-80402b8a6b33.jpg");
+                    }
+                    sliderItemList.add(sliderItem);
+
+                    break;
+            }
+
+
+
+        }
+        adapter.renewItems(sliderItemList);
     }
 
     @Override

@@ -160,9 +160,13 @@ public class main_page extends AppCompatActivity {
 
     public void onClick_img1(View v) {        //Map info Activity     //Map Button
         final Intent intent = new Intent(this, MainActivity.class);
-        startActivityForResult(intent, 201);
-        intent.putExtra("name", "[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
         intent.putExtra("office_Num",1);
+        startActivity(intent);
+    }
+
+    public void onClick_img2(View v) {        //Map info Activity     //Map Button
+        final Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("office_Num",2);
         startActivity(intent);
     }
 
