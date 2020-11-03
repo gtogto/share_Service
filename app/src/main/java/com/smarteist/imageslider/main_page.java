@@ -74,13 +74,13 @@ public class main_page extends AppCompatActivity {
         text_item_1.setText("[압구정] 우노빌딩 10,000sys/h");
 
         text_item_2.setTextSize(15);
-        text_item_2.setText("[홍대] 회의실 10,000sys/h");
+        text_item_2.setText("[홍대] 비라운지 10,000sys/h");
 
         text_item_3.setTextSize(15);
-        text_item_3.setText("[논현역] 공유오피스 8,000sys/h");
+        text_item_3.setText("[논현] 공유오피스 8,000sys/h");
 
         text_item_4.setTextSize(15);
-        text_item_4.setText("[판교역] 우노빌딩 10,000sys/h");
+        text_item_4.setText("[판교] 우노빌딩 10,000sys/h");
 
         text_item_5.setTextSize(15);
         text_item_5.setText("[압구정] 우노빌딩 10,000sys/h");

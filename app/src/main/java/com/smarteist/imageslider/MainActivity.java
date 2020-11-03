@@ -2,15 +2,24 @@ package com.smarteist.imageslider;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
@@ -36,12 +45,18 @@ public class MainActivity extends AppCompatActivity {
     private static int Office_Name_Num;
     private static MapPoint mapPoint;
     private static MapPOIItem marker;
+    private Toolbar toolbar;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
 
         sliderView = findViewById(R.id.imageSlider);
 
@@ -72,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getIntent());
         Office_Name_Num = intent.getIntExtra("office_Num", 1);
 
-        setUp_Office_image();
         setUp_Office_name();
+        setUp_Office_image();
     }
 
     @Override
@@ -82,38 +97,6 @@ public class MainActivity extends AppCompatActivity {
         super.finish();
         getIntent().getExtras().remove("name");
     }
-
-    public void renewItems(View view) {
-        List<SliderItem> sliderItemList = new ArrayList<>();
-        //dummy data
-        /* Slider image*/
-        for (int i = 0; i < 3; i++) {
-            SliderItem sliderItem = new SliderItem();
-            //sliderItem.setDescription("Office Image " + i);
-            if (i == 0) {
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92436005-9b5fc500-f1de-11ea-90de-5472c738a66c.png");
-            } else if (i == 1){
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92436009-9e5ab580-f1de-11ea-8c04-ff1367463b54.png");
-            } else if (i == 2) {
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92436018-a286d300-f1de-11ea-8046-edabe48ed581.png");
-            }
-
-            sliderItemList.add(sliderItem);
-        }
-        adapter.renewItems(sliderItemList);
-    }
-    /*
-    public void removeLastItem(View view) {
-        if (adapter.getCount() - 1 >= 0)
-            adapter.deleteItem(adapter.getCount() - 1);
-    }
-
-    public void addNewItem(View view) {
-        SliderItem sliderItem = new SliderItem();
-        sliderItem.setDescription("Slider Item Added Manually");
-        sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        adapter.addItem(sliderItem);
-    }*/
 
     public void onClick_Book(View v) {        //Map info Activity     //Map Button
         final Intent i = new Intent(this, Book_img_1.class);
@@ -124,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
     public void setUp_Office_name() {
         switch (Office_Name_Num) {
             case 1:
+                this.setTitle("코워킹스페이스 GARAGE");
+                getSupportActionBar().setTitle("코워킹스페이스 강남점");
+                toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
                 office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
                 mapView.setMapCenterPoint(mapPoint, true);
@@ -141,13 +127,16 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case 2:
-                office_name_txt.setText("[홍대] 회의실 GARAGE 강남점 - 가라지 강남점 지정데스크");
+                this.setTitle("비라운지 홍대점");
+                getSupportActionBar().setTitle("비라운지 홍대점");
+                toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
+                office_name_txt.setText("[홍대인근] 비라운지 공유 오피스 홍대점 - 1인 사무실");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.52652835684546, 126.86109378702771);
                 mapView.setMapCenterPoint(mapPoint, true);
                 mapViewContainer.addView(mapView);
 
                 marker = new MapPOIItem();
-                marker.setItemName("판교글로벌R&D센터");
+                marker.setItemName("비라운지공유오피스");
                 marker.setTag(0);
                 marker.setMapPoint(mapPoint);
                 // 기본으로 제공하는 BluePin 마커 모양.
@@ -179,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
                         sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97662406-4b083380-1aba-11eb-917b-d1edf6f94d6e.jpg");
                     }
                     sliderItemList.add(sliderItem);
-
                     break;
 
                 case 2:
@@ -191,11 +179,8 @@ public class MainActivity extends AppCompatActivity {
                         sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97950112-29b88780-1dd9-11eb-9408-80402b8a6b33.jpg");
                     }
                     sliderItemList.add(sliderItem);
-
                     break;
             }
-
-
 
         }
         adapter.renewItems(sliderItemList);
@@ -206,5 +191,23 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_navigationmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.account:
+                Toast.makeText(getApplicationContext(), "navigation menu test", Toast.LENGTH_LONG).show();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

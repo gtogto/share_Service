@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#D5DDE6</item>
+        <item name="colorPrimary">#697BF8</item>
         dh122<item name="colorPrimaryDark">@color/color_Black</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="toolbar" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_White</item>
     </style>
 
 </resources>
