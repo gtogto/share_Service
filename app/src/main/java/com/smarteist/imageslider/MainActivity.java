@@ -8,10 +8,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,12 +19,12 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.imageslider.Model.SliderItem;
+import com.yongbeom.aircalendar.AirCalendarDatePickerActivity;
 
 //import net.daum.android.map.MapView;
 import net.daum.mf.map.api.MapView;
@@ -46,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private static MapPoint mapPoint;
     private static MapPOIItem marker;
     private Toolbar toolbar;
+    ImageView Favorites_btn;
+
+    int i = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
 
         sliderView = findViewById(R.id.imageSlider);
 
@@ -70,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);
         sliderView.startAutoCycle();
+
+        Favorites_btn = findViewById(R.id.Favorites_btn);
 
         office_name_txt = (TextView) findViewById(R.id.office_name_txt);
         office_loc_txt = (TextView) findViewById(R.id.office_loc_txt);
@@ -89,6 +93,23 @@ public class MainActivity extends AppCompatActivity {
 
         setUp_Office_name();
         setUp_Office_image();
+
+        Favorites_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i = 1 - i;
+
+                if ( i == 0 ){
+                    Favorites_btn.setImageResource(R.drawable.star_on);
+                    Toast.makeText(getApplicationContext(), "Added to Favourites", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Favorites_btn.setImageResource(R.drawable.star_off);
+                    Toast.makeText(getApplicationContext(), "Delete to Favourites", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -99,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick_Book(View v) {        //Map info Activity     //Map Button
-        final Intent i = new Intent(this, Book_img_1.class);
+        final Intent i = new Intent(this, calendarDate_Book.class);
         startActivityForResult(i, 201);
         //startActivity(i);
     }
@@ -109,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 this.setTitle("코워킹스페이스 GARAGE");
                 getSupportActionBar().setTitle("코워킹스페이스 강남점");
-                toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
+                //toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
                 office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
                 mapView.setMapCenterPoint(mapPoint, true);
@@ -129,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 this.setTitle("비라운지 홍대점");
                 getSupportActionBar().setTitle("비라운지 홍대점");
-                toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
+                //toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
                 office_name_txt.setText("[홍대인근] 비라운지 공유 오피스 홍대점 - 1인 사무실");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.52652835684546, 126.86109378702771);
                 mapView.setMapCenterPoint(mapPoint, true);

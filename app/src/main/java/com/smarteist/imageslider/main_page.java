@@ -12,11 +12,11 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
@@ -32,6 +32,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 public class main_page extends AppCompatActivity {
@@ -49,6 +50,13 @@ public class main_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page_layout);
+
+        Toolbar toolbar;
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
+        getSupportActionBar().setTitle("Office Share");
+
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         /*
@@ -97,66 +105,9 @@ public class main_page extends AppCompatActivity {
         text_item_9.setTextSize(15);
         text_item_9.setText("[압구정] 우노빌딩 10,000sys/h");
 
-        /*
-        sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
-            @Override
-            public void onIndicatorClicked(int position) {
-                Log.i("GGG", "onIndicatorClicked: " + sliderView.getCurrentPagePosition());
-            }
-        });
-        */
-        //test();
-        getAppKeyHash();
+        //getAppKeyHash();
 
     }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_navigationmenu, menu);
-        return true;
-    }
-
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
-    /*
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_new:
-                Toast.makeText(this, "New Member", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ // 뒤로가기 버튼 눌렀을 때
-                finish();
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    /*
-    public void test(){
-        List<SliderItem> sliderItemList = new ArrayList<>();
-        //dummy data
-        for (int i = 0; i < 3; i++) {
-            SliderItem sliderItem = new SliderItem();
-            //sliderItem.setDescription("Slider Item " + i);
-            if (i == 0) {
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97400217-0fdaf880-1932-11eb-8c52-e1ae418417e5.png");
-            } else if (i == 1){
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92438408-b8e35d80-f1e3-11ea-889f-c5c0649ff4d8.png");
-            } else if (i == 2){
-                sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/92438528-f8aa4500-f1e3-11ea-9294-09846273c9dc.png");
-            }
-            sliderItemList.add(sliderItem);
-        }
-        adapter.renewItems(sliderItemList);
-    }
-    */
 
     public void onClick_img1(View v) {        //Map info Activity     //Map Button
         final Intent intent = new Intent(this, MainActivity.class);
@@ -189,6 +140,25 @@ public class main_page extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_navigationmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.account:
+                Toast.makeText(getApplicationContext(), "navigation menu test", Toast.LENGTH_LONG).show();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

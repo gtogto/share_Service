@@ -20,6 +20,30 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingRight="15dp"
+                android:layout_alignParentRight="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/Favorites_btn"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="15dp"
+                        android:onClick="onClick_favorites"
+                        android:src="@drawable/star_off"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
         </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout

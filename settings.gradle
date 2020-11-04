@@ -1,2 +1,3 @@
+include ':AirCalendar'
 include ':android_DaumMap'
 include ':app', ':autoimageslider'

@@ -26,7 +26,10 @@
         <!-- Office View Details -->
         <activity android:name="com.smarteist.imageslider.MainActivity">
         </activity>
-        <activity android:name="com.smarteist.imageslider.Book_img_1"/>
+
+        <activity android:name="com.smarteist.imageslider.calendarDate_Book"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity android:name="com.smarteist.imageslider.Book_img_2"/>
         <activity android:name="com.smarteist.imageslider.Book_img_3"/>
         <activity android:name="com.smarteist.imageslider.Book_img_4"/>
@@ -35,6 +38,11 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <!-- for Calendar API -->
+        <activity android:name="com.yongbeom.aircalendar.AirCalendarDatePickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
     </application>
 
 </manifest>
