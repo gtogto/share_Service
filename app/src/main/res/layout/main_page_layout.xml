@@ -117,7 +117,8 @@
                 android:paddingRight="10dp"
                 android:text="item1-name"
                 android:textSize="15sp"
-                app:fontFamily="sans-serif-black"></TextView>
+                app:fontFamily="sans-serif-black"
+                android:onClick="onClick_img1"></TextView>
 
             <TextView
                 android:id="@+id/text_item_2"
@@ -127,7 +128,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img2">
             </TextView>
 
             <TextView
@@ -138,7 +140,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img3">
             </TextView>
 
         </LinearLayout>
@@ -159,7 +162,8 @@
                 android:paddingRight="10dp"
                 android:text="item1-price"
                 android:textSize="15sp"
-                app:fontFamily="sans-serif-black"></TextView>
+                app:fontFamily="sans-serif-black"
+                android:onClick="onClick_img1"></TextView>
 
             <TextView
                 android:id="@+id/price_item_2"
@@ -169,7 +173,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img2">
             </TextView>
 
             <TextView
@@ -180,7 +185,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img3">
             </TextView>
 
         </LinearLayout>
@@ -240,7 +246,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img4">
             </TextView>
 
             <TextView
@@ -252,7 +259,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img5">
             </TextView>
 
             <TextView
@@ -264,7 +272,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img6">
             </TextView>
 
         </LinearLayout>
@@ -285,7 +294,8 @@
                 android:paddingRight="10dp"
                 android:text="item4-price"
                 android:textSize="15sp"
-                app:fontFamily="sans-serif-black"></TextView>
+                app:fontFamily="sans-serif-black"
+                android:onClick="onClick_img4"></TextView>
 
             <TextView
                 android:id="@+id/price_item_5"
@@ -295,7 +305,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img5">
             </TextView>
 
             <TextView
@@ -306,7 +317,8 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 app:fontFamily="sans-serif-black"
-                android:textSize="15sp">
+                android:textSize="15sp"
+                android:onClick="onClick_img6">
             </TextView>
 
         </LinearLayout>

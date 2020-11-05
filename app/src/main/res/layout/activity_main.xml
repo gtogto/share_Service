@@ -116,6 +116,7 @@
                 android:text="Get shared office location information"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                app:fontFamily="sans-serif-black"
                 android:textSize="20sp">
             </TextView>
 
@@ -133,7 +134,7 @@
             <RelativeLayout
                 android:id="@+id/map_view"
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="120dp" />
 
             <View
                 android:layout_width="match_parent"

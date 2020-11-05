@@ -2,7 +2,6 @@ package com.smarteist.imageslider;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -18,19 +17,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
-import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
-import com.smarteist.autoimageslider.SliderAnimations;
-import com.smarteist.autoimageslider.SliderView;
-import com.smarteist.imageslider.Model.SliderItem;
-
 import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -39,12 +28,9 @@ public class main_page extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private Context context = this;
-    //SliderView sliderView;
-    //private SliderAdapterExample adapter;
 
     private TextView text_item_1, text_item_2, text_item_3, text_item_4, text_item_5, text_item_6, text_item_7, text_item_8, text_item_9;
     private TextView price_item_1, price_item_2, price_item_3, price_item_4, price_item_5, price_item_6, price_item_7, price_item_8, price_item_9;
-    //android:id="@+id/text_item_1"
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -58,21 +44,6 @@ public class main_page extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
         getSupportActionBar().setTitle("Office Share");
 
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        /*
-        sliderView = findViewById(R.id.imageSlider);
-        adapter = new SliderAdapterExample(this);
-        sliderView.setSliderAdapter(adapter);
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
-        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
-        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
-        sliderView.setIndicatorSelectedColor(Color.WHITE);
-        sliderView.setIndicatorUnselectedColor(Color.GRAY);
-        sliderView.setScrollTimeInSec(3);
-        sliderView.setAutoCycle(true);
-        sliderView.startAutoCycle();*/
-
         text_item_1 = (TextView)findViewById(R.id.text_item_1); text_item_2 = (TextView)findViewById(R.id.text_item_2);
         text_item_3 = (TextView)findViewById(R.id.text_item_3); text_item_4 = (TextView)findViewById(R.id.text_item_4);
         text_item_5 = (TextView)findViewById(R.id.text_item_5); text_item_6 = (TextView)findViewById(R.id.text_item_6);
@@ -85,8 +56,7 @@ public class main_page extends AppCompatActivity {
         price_item_7 = (TextView)findViewById(R.id.price_item_7); price_item_8 = (TextView)findViewById(R.id.price_item_8);
         price_item_9 = (TextView)findViewById(R.id.price_item_9);
 
-        //getAppKeyHash();
-        setOfficeText();
+        setOfficeText();    // Office information setup
 
     }
 
@@ -102,20 +72,28 @@ public class main_page extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void getAppKeyHash() {
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md;
-                md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String something = new String(Base64.encode(md.digest(), 0));
-                Log.e("Hash key", something);
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            Log.e("name not found", e.toString());
-        }
+    public void onClick_img3(View v) {        //Map info Activity     //Map Button
+        final Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("office_Num",3);
+        startActivity(intent);
+    }
+
+    public void onClick_img4(View v) {        //Map info Activity     //Map Button
+        final Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("office_Num",4);
+        startActivity(intent);
+    }
+
+    public void onClick_img5(View v) {        //Map info Activity     //Map Button
+        final Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("office_Num",5);
+        startActivity(intent);
+    }
+
+    public void onClick_img6(View v) {        //Map info Activity     //Map Button
+        final Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("office_Num",6);
+        startActivity(intent);
     }
 
     @Override
@@ -181,5 +159,23 @@ public class main_page extends AppCompatActivity {
         price_item_9.setTextColor(Color.parseColor(strColor));
         price_item_9.setText("10,000sys/h");
     }
+
+    /* Generate a Hash Key */
+    /*
+    private void getAppKeyHash() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                Log.e("Hash key", something);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString());
+        }
+    }*/
 
 }

@@ -126,12 +126,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setUp_Office_name() {
+        String strColor = "#0FD9A2";
         switch (Office_Name_Num) {
             case 1:
                 this.setTitle("코워킹스페이스 GARAGE");
                 getSupportActionBar().setTitle("코워킹스페이스 강남점");
-                //toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
-                office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점 - 가라지 강남점 지정데스크");
+                office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점" +"\n"+ "- 가라지 강남점 지정데스크");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                office_loc_txt.setText("서울 강남구 테헤란로 128 2,3층");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
                 mapView.setMapCenterPoint(mapPoint, true);
                 mapViewContainer.addView(mapView);
@@ -145,28 +147,44 @@ public class MainActivity extends AppCompatActivity {
                 // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
                 marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
                 mapView.addPOIItem(marker);
-
                 break;
+
             case 2:
                 this.setTitle("비라운지 홍대점");
                 getSupportActionBar().setTitle("비라운지 홍대점");
-                //toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
                 office_name_txt.setText("[홍대인근] 비라운지 공유 오피스 홍대점 - 1인 사무실");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                office_loc_txt.setText("서울 양천구 신정중앙로 86 5층");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.52652835684546, 126.86109378702771);
                 mapView.setMapCenterPoint(mapPoint, true);
                 mapViewContainer.addView(mapView);
-
                 marker = new MapPOIItem();
                 marker.setItemName("비라운지공유오피스");
                 marker.setTag(0);
                 marker.setMapPoint(mapPoint);
-                // 기본으로 제공하는 BluePin 마커 모양.
                 marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
-                // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
                 marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
                 mapView.addPOIItem(marker);
-
                 break;
+
+            case 3:
+                this.setTitle("토즈워크센터 강남");
+                getSupportActionBar().setTitle("토즈워크센터 강남2호점");
+                office_name_txt.setText("[강남] 토즈워크센터 - 1인 독립형 오피스");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+                marker = new MapPOIItem();
+                marker.setItemName("토즈워크센터");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+                break;
+
             default:
                 System.out.println("Unable to get a office name");
                 break;
@@ -198,6 +216,17 @@ public class MainActivity extends AppCompatActivity {
                         sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97950111-291ff100-1dd9-11eb-93a1-ae0a86936e8e.jpg");
                     } else if (i == 2){
                         sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/97950112-29b88780-1dd9-11eb-9408-80402b8a6b33.jpg");
+                    }
+                    sliderItemList.add(sliderItem);
+                    break;
+
+                case 3:
+                    if (i == 0) {
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/98208403-9457f780-1f80-11eb-8fcc-3b796c583c49.jpg");
+                    } else if (i == 1){
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/98208416-9752e800-1f80-11eb-9f0d-847bbd194edb.jpg");
+                    } else if (i == 2){
+                        sliderItem.setImageUrl("https://user-images.githubusercontent.com/30851459/98208421-99b54200-1f80-11eb-9c9d-a976ced83b15.jpg");
                     }
                     sliderItemList.add(sliderItem);
                     break;
