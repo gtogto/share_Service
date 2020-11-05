@@ -42,7 +42,8 @@ public class main_page extends AppCompatActivity {
     //SliderView sliderView;
     //private SliderAdapterExample adapter;
 
-    private static TextView text_item_1, text_item_2, text_item_3, text_item_4, text_item_5, text_item_6, text_item_7, text_item_8, text_item_9;
+    private TextView text_item_1, text_item_2, text_item_3, text_item_4, text_item_5, text_item_6, text_item_7, text_item_8, text_item_9;
+    private TextView price_item_1, price_item_2, price_item_3, price_item_4, price_item_5, price_item_6, price_item_7, price_item_8, price_item_9;
     //android:id="@+id/text_item_1"
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -78,34 +79,14 @@ public class main_page extends AppCompatActivity {
         text_item_7 = (TextView)findViewById(R.id.text_item_7); text_item_8 = (TextView)findViewById(R.id.text_item_8);
         text_item_9 = (TextView)findViewById(R.id.text_item_9);
 
-        text_item_1.setTextSize(15);
-        text_item_1.setText("[압구정] 우노빌딩 10,000sys/h");
-
-        text_item_2.setTextSize(15);
-        text_item_2.setText("[홍대] 비라운지 10,000sys/h");
-
-        text_item_3.setTextSize(15);
-        text_item_3.setText("[논현] 공유오피스 8,000sys/h");
-
-        text_item_4.setTextSize(15);
-        text_item_4.setText("[판교] 우노빌딩 10,000sys/h");
-
-        text_item_5.setTextSize(15);
-        text_item_5.setText("[압구정] 우노빌딩 10,000sys/h");
-
-        text_item_6.setTextSize(15);
-        text_item_6.setText("[압구정] 우노빌딩 10,000sys/h");
-
-        text_item_7.setTextSize(15);
-        text_item_7.setText("[압구정] 우노빌딩 10,000sys/h");
-
-        text_item_8.setTextSize(15);
-        text_item_8.setText("[압구정] 우노빌딩 10,000sys/h");
-
-        text_item_9.setTextSize(15);
-        text_item_9.setText("[압구정] 우노빌딩 10,000sys/h");
+        price_item_1 = (TextView)findViewById(R.id.price_item_1); price_item_2 = (TextView)findViewById(R.id.price_item_2);
+        price_item_3 = (TextView)findViewById(R.id.price_item_3); price_item_4 = (TextView)findViewById(R.id.price_item_4);
+        price_item_5 = (TextView)findViewById(R.id.price_item_5); price_item_6 = (TextView)findViewById(R.id.price_item_6);
+        price_item_7 = (TextView)findViewById(R.id.price_item_7); price_item_8 = (TextView)findViewById(R.id.price_item_8);
+        price_item_9 = (TextView)findViewById(R.id.price_item_9);
 
         //getAppKeyHash();
+        setOfficeText();
 
     }
 
@@ -159,6 +140,46 @@ public class main_page extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setOfficeText(){
+        /* Office information list */
+        String strColor = "#6978F8";
+        text_item_1.setText(getString(R.string.office_name_item1));
+        price_item_1.setTextColor(Color.parseColor(strColor));
+        price_item_1.setText("10,000sys/h");
+
+        text_item_2.setText(getString(R.string.office_name_item2));
+        price_item_2.setTextColor(Color.parseColor(strColor));
+        price_item_2.setText("10,000sys/h");
+
+        text_item_3.setText(getString(R.string.office_name_item3));
+        price_item_3.setTextColor(Color.parseColor(strColor));
+        price_item_3.setText("10,000sys/h");
+
+        text_item_4.setText(getString(R.string.office_name_item4));
+        price_item_4.setTextColor(Color.parseColor(strColor));
+        price_item_4.setText("10,000sys/h");
+
+        text_item_5.setText(getString(R.string.office_name_item5));
+        price_item_5.setTextColor(Color.parseColor(strColor));
+        price_item_5.setText("10,000sys/h");
+
+        text_item_6.setText(getString(R.string.office_name_item6));
+        price_item_6.setTextColor(Color.parseColor(strColor));
+        price_item_6.setText("10,000sys/h");
+
+        text_item_7.setText(getString(R.string.office_name_item7));
+        price_item_7.setTextColor(Color.parseColor(strColor));
+        price_item_7.setText("10,000sys/h");
+
+        text_item_8.setText(getString(R.string.office_name_item8));
+        price_item_8.setTextColor(Color.parseColor(strColor));
+        price_item_8.setText("10,000sys/h");
+
+        text_item_9.setText(getString(R.string.office_name_item9));
+        price_item_9.setTextColor(Color.parseColor(strColor));
+        price_item_9.setText("10,000sys/h");
     }
 
 }

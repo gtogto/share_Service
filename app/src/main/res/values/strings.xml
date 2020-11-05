@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">공유공간 서비스</string>
     <string name="action_settings">Settings</string>
+
+    <string name="office_name_item1">[압구정] 우노빌딩</string>
+    <string name="office_name_item2">[홍대역] 비라운지</string>
+    <string name="office_name_item3">[논현] 공유오피스</string>
+    <string name="office_name_item4">[판교] 유스페이스</string>
+    <string name="office_name_item5">[세글자] 네글자가</string>
+    <string name="office_name_item6">[두자] 다섯글자가</string>
+    <string name="office_name_item7">[세글자] 네글자가</string>
+    <string name="office_name_item8">[두자] 다섯글자가</string>
+    <string name="office_name_item9">[세글자] 네글자가</string>
+
 </resources>
