@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     SliderView sliderView;
     private SliderAdapterExample adapter;
     private static TextView office_name_txt, office_loc_txt;
+    private static TextView office_info_txt1, office_info_txt2, office_info_txt3, office_info_txt4;
     private static MapView mapView;
     private static ViewGroup mapViewContainer;
     private static int Office_Name_Num;
@@ -77,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
 
         office_name_txt = (TextView) findViewById(R.id.office_name_txt);
         office_loc_txt = (TextView) findViewById(R.id.office_loc_txt);
+        office_info_txt1 = (TextView) findViewById(R.id.office_info_sub1_txt);
+        office_info_txt2 = (TextView) findViewById(R.id.office_info_sub2_txt);
+        office_info_txt3 = (TextView) findViewById(R.id.office_info_sub3_txt);
 
         mapView = new MapView(this);
         mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
@@ -93,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
         setUp_Office_name();
         setUp_Office_image();
+
+        office_info_txt1.setText(getString(R.string.office_information_1));
+        office_info_txt2.setText(getString(R.string.office_information_2));
+        office_info_txt3.setText(getString(R.string.office_information_3));
 
         Favorites_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,14 +135,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUp_Office_name() {
         String strColor = "#0FD9A2";
+
         switch (Office_Name_Num) {
             case 1:
                 this.setTitle("코워킹스페이스 GARAGE");
                 getSupportActionBar().setTitle("코워킹스페이스 강남점");
-                office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점" +"\n"+ "- 가라지 강남점 지정데스크");
+                office_name_txt.setText("[강남] 코워킹스페이스 GARAGE 강남점");
                 office_loc_txt.setTextColor(Color.parseColor(strColor));
-                office_loc_txt.setText("서울 강남구 테헤란로 128 2,3층");
-                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                //office_loc_txt.setText("서울 강남구 테헤란로 128 2,3층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.495701900521105, 127.0295316616538);
                 mapView.setMapCenterPoint(mapPoint, true);
                 mapViewContainer.addView(mapView);
 
@@ -152,9 +162,10 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 this.setTitle("비라운지 홍대점");
                 getSupportActionBar().setTitle("비라운지 홍대점");
-                office_name_txt.setText("[홍대인근] 비라운지 공유 오피스 홍대점 - 1인 사무실");
+                office_name_txt.setText("[홍대] 비라운지 공유 오피스 홍대점");
                 office_loc_txt.setTextColor(Color.parseColor(strColor));
-                office_loc_txt.setText("서울 양천구 신정중앙로 86 5층");
+                //office_loc_txt.setText("서울 양천구 신정중앙로 86 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.52652835684546, 126.86109378702771);
                 mapView.setMapCenterPoint(mapPoint, true);
                 mapViewContainer.addView(mapView);
@@ -170,9 +181,10 @@ public class MainActivity extends AppCompatActivity {
             case 3:
                 this.setTitle("토즈워크센터 강남");
                 getSupportActionBar().setTitle("토즈워크센터 강남2호점");
-                office_name_txt.setText("[강남] 토즈워크센터 - 1인 독립형 오피스");
+                office_name_txt.setText("[강남] 토즈워크센터 강남2호점");
                 office_loc_txt.setTextColor(Color.parseColor(strColor));
-                office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                //office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
                 mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
                 mapView.setMapCenterPoint(mapPoint, true);
                 mapViewContainer.addView(mapView);
