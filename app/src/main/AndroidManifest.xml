@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.smarteist.imageslider">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,14 +15,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
 
-        <activity android:name="com.smarteist.imageslider.main_page">
+        android:name="com.smarteist.imageslider.kakao_Login.GlobalApplication"
+
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
+
+        <activity android:name="com.smarteist.imageslider.kakao_Login.kakaoLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.smarteist.imageslider.main_page">
+        </activity>
+
+        <!--
+        <activity android:name="com.smarteist.imageslider.main_page">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> -->
 
         <!-- Office View Details -->
         <activity android:name="com.smarteist.imageslider.MainActivity">
@@ -34,6 +50,8 @@
         <activity android:name="com.smarteist.imageslider.Book_img_3"/>
         <activity android:name="com.smarteist.imageslider.Book_img_4"/>
 
+
+
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="781fc7ecc485c7e5cb6f9f823ed44136"/>
         <meta-data
             android:name="preloaded_fonts"
@@ -42,6 +60,7 @@
         <!-- for Calendar API -->
         <activity android:name="com.yongbeom.aircalendar.AirCalendarDatePickerActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
 
     </application>
 

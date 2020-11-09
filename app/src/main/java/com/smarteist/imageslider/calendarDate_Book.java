@@ -130,12 +130,10 @@ public class calendarDate_Book extends AppCompatActivity {
 
             case 2:
                 result_name.setText("비라운지 강남점");
-
                 break;
 
             case 3:
                 result_name.setText("토즈워크센터 강남점");
-
                 break;
 
             default:

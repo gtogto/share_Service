@@ -43,4 +43,5 @@ dependencies {
     implementation files('libs/libDaumMapAndroid.jar')                      // for KAKAO map
     implementation 'com.github.yongbeam:AirCalendar:1.2.1'                  // for calendar
     implementation 'joda-time:joda-time:2.10.1'
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.2'
 }
