@@ -1,21 +1,31 @@
 package com.smarteist.imageslider;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yongbeom.aircalendar.AirCalendarDatePickerActivity;
 import com.yongbeom.aircalendar.core.AirCalendarIntent;
+
+import net.daum.mf.map.api.MapPOIItem;
+import net.daum.mf.map.api.MapPoint;
 
 import java.util.Calendar;
 
 
 public class calendarDate_Book extends AppCompatActivity {
     public final static int REQUEST_CODE = 1;
+
+    private static int Office_Name_Num;
+    private static TextView result_name,
+            result_check_in_time, result_check_out_time;
+    private String get_date_Start, get_date_End;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,10 @@ public class calendarDate_Book extends AppCompatActivity {
         intent.setSelectButtonText("Select");
         intent.setResetBtnText("Reset");
         intent.setWeekStart(Calendar.MONDAY);
+
+        result_name = (TextView)findViewById(R.id.result_name);
+        result_check_in_time = (TextView)findViewById(R.id.result_check_in_time);
+        result_check_out_time = (TextView)findViewById(R.id.result_check_out_time);
 //        ArrayList<String> weekDay = new ArrayList<>();
 //        weekDay.add("M");
 //        weekDay.add("T");
@@ -51,6 +65,9 @@ public class calendarDate_Book extends AppCompatActivity {
 //        intent.setMaxYear(2030);
         startActivityForResult(intent, REQUEST_CODE);
 
+        Intent result_intent = new Intent(this.getIntent());
+        Office_Name_Num = result_intent.getIntExtra("office_Num", 1);
+        setUp_Office_name();
     }
 
     @Override
@@ -73,6 +90,11 @@ public class calendarDate_Book extends AppCompatActivity {
                 Toast.makeText(this, "Select Date range : "
                         + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_DATE) + " ~ "
                         + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_DATE), Toast.LENGTH_SHORT).show();
+                get_date_Start = data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_DATE);
+                get_date_End = data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_DATE);
+
+                result_check_in_time.setText(get_date_Start);
+                result_check_out_time.setText(get_date_End);
             }
         }
     }
@@ -98,4 +120,28 @@ public class calendarDate_Book extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void setUp_Office_name() {
+
+        switch (Office_Name_Num) {
+            case 1:
+                result_name.setText("코워킹스페이스 GARAGE 강남점");
+                break;
+
+            case 2:
+                result_name.setText("비라운지 강남점");
+
+                break;
+
+            case 3:
+                result_name.setText("토즈워크센터 강남점");
+
+                break;
+
+            default:
+                System.out.println("Unable to get a office name");
+                break;
+        }
+    }
+
 }

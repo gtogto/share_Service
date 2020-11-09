@@ -127,12 +127,6 @@ public class MainActivity extends AppCompatActivity {
         getIntent().getExtras().remove("name");
     }
 
-    public void onClick_Book(View v) {        //Map info Activity     //Map Button
-        final Intent i = new Intent(this, calendarDate_Book.class);
-        startActivityForResult(i, 201);
-        //startActivity(i);
-    }
-
     public void setUp_Office_name() {
         String strColor = "#0FD9A2";
 
@@ -271,5 +265,13 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onClick_Book(View v) {        //Map info Activity     //Map Button
+        final Intent result_intent = new Intent(this, calendarDate_Book.class);
+        result_intent.putExtra("office_Num", Office_Name_Num);
+        startActivityForResult(result_intent, 201);
+        //startActivity(i);
+    }
+
 
 }
