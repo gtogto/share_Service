@@ -11,11 +11,57 @@ This is an amazing image slider for the Android .
 You can easily load images with your custom layout, and there are many kinds of amazing animations you can choose.
 
 ```groovy
-     implementation 'com.github.smarteist:autoimageslider:1.3.9'
+     implementation 'com.github.smarteist:autoimageslider:1.3.9-appcompat'
+	 implementation fileTree(include: ['*.jar'], dir: 'libs')
+	 implementation 'androidx.appcompat:appcompat:1.0.2'
+	 implementation 'com.android.support:appcompat-v7:28.0.0'
+	 implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+	 implementation 'com.android.support:cardview-v7:28.0.0'
+	 implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+	 testImplementation 'junit:junit:4.12'
+	 implementation 'com.github.bumptech.glide:glide:4.9.0'
+	 annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+	 androidTestImplementation 'androidx.test:runner:1.1.1'
+	 implementation 'androidx.cardview:cardview:1.0.0'
+	 androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+	 implementation project(':autoimageslider')                              // for Image slide
+	 implementation 'com.android.support:design:28.0.0'
+	 implementation 'com.android.support:appcompat-v7:28.0.0'
+	 implementation 'androidx.appcompat:appcompat:1.1.0'
+	 implementation 'com.github.jd-alexander:LikeButton:0.2.3'               // for like button
+	 implementation fileTree(include: ['*.jar'], dir: 'libs')
+	 implementation files('libs/libDaumMapAndroid.jar')                      // for KAKAO Map
+	 implementation 'com.github.yongbeam:AirCalendar:1.2.1'                  // for Calendar
+	 implementation 'joda-time:joda-time:2.10.1'
+	 implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.2'//for KAKAK Login
+	 
+	 
 ```
 If you are using appcompat libraries use this one, but please migrate to androidx as soon as you can.
 ```groovy
      implementation 'com.github.smarteist:autoimageslider:1.3.9-appcompat'
+	 implementation fileTree(include: ['*.jar'], dir: 'libs')
+	 implementation 'androidx.appcompat:appcompat:1.0.2'
+	 implementation 'com.android.support:appcompat-v7:28.0.0'
+	 implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+	 implementation 'com.android.support:cardview-v7:28.0.0'
+	 implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+	 testImplementation 'junit:junit:4.12'
+	 implementation 'com.github.bumptech.glide:glide:4.9.0'
+	 annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+	 androidTestImplementation 'androidx.test:runner:1.1.1'
+	 implementation 'androidx.cardview:cardview:1.0.0'
+	 androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+	 implementation project(':autoimageslider')                              // for Image slide
+	 implementation 'com.android.support:design:28.0.0'
+	 implementation 'com.android.support:appcompat-v7:28.0.0'
+	 implementation 'androidx.appcompat:appcompat:1.1.0'
+	 implementation 'com.github.jd-alexander:LikeButton:0.2.3'               // for like button
+	 implementation fileTree(include: ['*.jar'], dir: 'libs')
+	 implementation files('libs/libDaumMapAndroid.jar')                      // for KAKAO Map
+	 implementation 'com.github.yongbeam:AirCalendar:1.2.1'                  // for Calendar
+	 implementation 'joda-time:joda-time:2.10.1'
+	 implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.2'//for KAKAK Login
 ```
 
 ### New Feautures
@@ -26,11 +72,8 @@ If you are using appcompat libraries use this one, but please migrate to android
 * Swiping debounce implemented.
 
 
-## Demo
-![](https://github.com/smarteist/android-image-slider/blob/master/gif/0.gif)
-![](https://github.com/smarteist/android-image-slider/blob/master/gif/8.gif)
-![](https://github.com/smarteist/android-image-slider/blob/master/gif/4.gif)
-![](https://github.com/smarteist/android-image-slider/blob/master/gif/7.gif)
+## ScreenShot
+![](https://user-images.githubusercontent.com/30851459/98619325-5c68ff80-2346-11eb-8c01-0964b148221e.png)
 
 ## Integration guide
 

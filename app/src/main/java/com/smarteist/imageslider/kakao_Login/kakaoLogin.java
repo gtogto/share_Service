@@ -46,8 +46,8 @@ public class kakaoLogin extends AppCompatActivity {
                 @Override
                 public void onSuccess(MeV2Response result) {
                     Intent intent = new Intent(getApplicationContext(), main_page.class);
-                    //intent.putExtra("name", result.getNickname());
-                    //intent.putExtra("profile", result.getProfileImagePath());
+                    intent.putExtra("name", result.getNickname());
+                    intent.putExtra("profile", result.getProfileImagePath());
                     startActivity(intent);
                     finish();
                 }

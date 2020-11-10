@@ -19,11 +19,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.imageslider.Model.SliderItem;
+import com.smarteist.imageslider.kakao_Login.kakaoLogin;
 import com.yongbeom.aircalendar.AirCalendarDatePickerActivity;
 
 //import net.daum.android.map.MapView;
@@ -259,7 +262,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.account:
-                Toast.makeText(getApplicationContext(), "navigation menu test", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Account menu", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.logout:
+                Toast.makeText(getApplicationContext(), "Log-out menu", Toast.LENGTH_LONG).show();
+                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                    @Override
+                    public void onCompleteLogout() {
+                        Intent intent = new Intent(MainActivity.this, kakaoLogin.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                });
                 return true;
 
         }

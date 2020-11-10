@@ -17,6 +17,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.smarteist.imageslider.kakao_Login.kakaoLogin;
+
 import java.security.MessageDigest;
 
 import androidx.annotation.RequiresApi;
@@ -113,7 +117,19 @@ public class main_page extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.account:
-                Toast.makeText(getApplicationContext(), "navigation menu test", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Account menu", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.logout:
+                Toast.makeText(getApplicationContext(), "Log-out menu", Toast.LENGTH_LONG).show();
+                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                    @Override
+                    public void onCompleteLogout() {
+                        Intent intent = new Intent(main_page.this, kakaoLogin.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                });
                 return true;
 
         }

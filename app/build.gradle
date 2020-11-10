@@ -40,8 +40,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'               // for like button
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/libDaumMapAndroid.jar')                      // for KAKAO map
-    implementation 'com.github.yongbeam:AirCalendar:1.2.1'                  // for calendar
+    implementation files('libs/libDaumMapAndroid.jar')                      // for KAKAO Map
+    implementation 'com.github.yongbeam:AirCalendar:1.2.1'                  // for Calendar
     implementation 'joda-time:joda-time:2.10.1'
-    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.2'
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.2'//for KAKAK Login
 }
