@@ -8,11 +8,63 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@color/color_whiteGray2"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="100dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="새로운 공간을 찾으시나요?"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_purple2"
+            android:text="공간공유 서비스"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="15sp"
+            android:text="원활한 서비스 이용을 위해"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="15sp"
+            android:text="로그인을 해주세요!"
+            >
+        </TextView>
+
         <com.kakao.usermgmt.LoginButton
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="100dp"
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,6 +72,77 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
             />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/logo_keti">
+        </ImageView>
+
+        <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/logo_keti">
+            </ImageView>
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="40dp"
+                android:src="@drawable/logo_viz">
+            </ImageView>
+
+        </LinearLayout>
+        -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_purple2"
+                android:text="공유공간 ">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:text="서비스 "
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="Copyright ⓒ K.E.T.I and Vizming. All right Reserved."
+            >
+        </TextView>
+
+
 
     </LinearLayout>
 

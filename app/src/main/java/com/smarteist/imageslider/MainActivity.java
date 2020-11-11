@@ -25,9 +25,9 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.smarteist.imageslider.Book_Fragment.calendarDate_Book;
 import com.smarteist.imageslider.Model.SliderItem;
 import com.smarteist.imageslider.kakao_Login.kakaoLogin;
-import com.yongbeom.aircalendar.AirCalendarDatePickerActivity;
 
 //import net.daum.android.map.MapView;
 import net.daum.mf.map.api.MapView;
@@ -194,6 +194,120 @@ public class MainActivity extends AppCompatActivity {
                 mapView.addPOIItem(marker);
                 break;
 
+            case 4:
+                this.setTitle("item4");
+                getSupportActionBar().setTitle("진행중.. ");
+                office_name_txt.setText("진행중.. ");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                //office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+                marker = new MapPOIItem();
+                marker.setItemName("진행중.. ");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+                break;
+
+            case 5:
+                this.setTitle("item5");
+                getSupportActionBar().setTitle("진행중.. ");
+                office_name_txt.setText("진행중.. ");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                //office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+                marker = new MapPOIItem();
+                marker.setItemName("진행중.. ");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+                break;
+
+            case 6:
+                this.setTitle("item6");
+                getSupportActionBar().setTitle("진행중.. ");
+                office_name_txt.setText("진행중.. ");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                //office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+                marker = new MapPOIItem();
+                marker.setItemName("진행중.. ");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+                break;
+
+            case 7:
+                this.setTitle("item7");
+                getSupportActionBar().setTitle("진행중.. ");
+                office_name_txt.setText("진행중.. ");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                //office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+                marker = new MapPOIItem();
+                marker.setItemName("진행중.. ");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+                break;
+
+            case 8:
+                this.setTitle("item8");
+                getSupportActionBar().setTitle("진행중.. ");
+                office_name_txt.setText("진행중.. ");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                //office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+                marker = new MapPOIItem();
+                marker.setItemName("진행중.. ");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+                break;
+
+            case 9:
+                this.setTitle("item9");
+                getSupportActionBar().setTitle("진행중.. ");
+                office_name_txt.setText("진행중.. ");
+                office_loc_txt.setTextColor(Color.parseColor(strColor));
+                //office_loc_txt.setText("서울 강남구 역삼동 832-7 황화빌딩 5층");
+                office_loc_txt.setText("- 이용 요금 : 시간당 10,000sys");
+                mapPoint = MapPoint.mapPointWithGeoCoord(37.40689362660826, 127.10212894834017);
+                mapView.setMapCenterPoint(mapPoint, true);
+                mapViewContainer.addView(mapView);
+                marker = new MapPOIItem();
+                marker.setItemName("진행중.. ");
+                marker.setTag(0);
+                marker.setMapPoint(mapPoint);
+                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+                marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+                mapView.addPOIItem(marker);
+                break;
+
             default:
                 System.out.println("Unable to get a office name");
                 break;
@@ -284,6 +398,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick_Book(View v) {        //Map info Activity     //Map Button
         final Intent result_intent = new Intent(this, calendarDate_Book.class);
         result_intent.putExtra("office_Num", Office_Name_Num);
+
         startActivityForResult(result_intent, 201);
         //startActivity(i);
     }

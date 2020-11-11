@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F5FB"
-    tools:context="com.smarteist.imageslider.calendarDate_Book">
+    tools:context="com.smarteist.imageslider.Book_Fragment.calendarDate_Book">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -19,7 +19,28 @@
             android:background="@color/color_purple2"
             app:popupTheme="@style/AppTheme"/>
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabTextColor="@color/color_green1"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:fontFamily="sans-serif-black"
+            android:elevation="1dp"
+            android:background="@android:color/background_light"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+        </com.google.android.material.tabs.TabLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
+    <FrameLayout
+        android:id="@+id/container"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <include layout="@layout/content_main"/>
+    <!--<include layout="@layout/book_fragment_1"/>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

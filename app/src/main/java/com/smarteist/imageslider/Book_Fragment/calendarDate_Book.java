@@ -1,26 +1,32 @@
-package com.smarteist.imageslider;
+package com.smarteist.imageslider.Book_Fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
+import com.smarteist.imageslider.R;
 import com.yongbeom.aircalendar.AirCalendarDatePickerActivity;
 import com.yongbeom.aircalendar.core.AirCalendarIntent;
-
-import net.daum.mf.map.api.MapPOIItem;
-import net.daum.mf.map.api.MapPoint;
 
 import java.util.Calendar;
 
 
 public class calendarDate_Book extends AppCompatActivity {
     public final static int REQUEST_CODE = 1;
+
+    book_Fragment_1 book_fragment_1;
+    book_Fragment_2 book_fragment_2;
 
     private static int Office_Name_Num;
     private static TextView result_name,
@@ -43,6 +49,46 @@ public class calendarDate_Book extends AppCompatActivity {
         result_name = (TextView)findViewById(R.id.result_name);
         result_check_in_time = (TextView)findViewById(R.id.result_check_in_time);
         result_check_out_time = (TextView)findViewById(R.id.result_check_out_time);
+
+        book_fragment_1 = new book_Fragment_1();
+        book_fragment_2 = new book_Fragment_2();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, book_fragment_1).commit();
+
+        TabLayout tabs = (TabLayout)findViewById(R.id.tabs);
+        tabs.addTab(tabs.newTab().setText("예약 정보"));
+        tabs.addTab(tabs.newTab().setText("지도 보기"));
+
+        tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+            //탭선택시
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+                Log.d("MainActivity", "선택된 탭 : "+position);
+
+                Fragment selected = null;
+                if(position==0){
+                    selected = book_fragment_1;
+                }else if(position==1){
+                    selected = book_fragment_2;
+                }
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, selected).commit();
+            }
+            //탭선택해제시
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            //선탭된탭을 다시 클릭시
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+
 //        ArrayList<String> weekDay = new ArrayList<>();
 //        weekDay.add("M");
 //        weekDay.add("T");
@@ -90,11 +136,21 @@ public class calendarDate_Book extends AppCompatActivity {
                 Toast.makeText(this, "Select Date range : "
                         + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_DATE) + " ~ "
                         + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_DATE), Toast.LENGTH_SHORT).show();
-                get_date_Start = data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_DATE);
-                get_date_End = data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_DATE);
+                get_date_Start = data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_VIEW_DATE);
+                get_date_End = data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_VIEW_DATE);
 
                 result_check_in_time.setText(get_date_Start);
                 result_check_out_time.setText(get_date_End);
+                /*
+                System.out.println("RESULT_SELECT_START_DATE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_DATE));
+                System.out.println("RESULT_SELECT_END_DATE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_DATE));
+                System.out.println("RESULT_SELECT_START_VIEW_DATE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_VIEW_DATE));
+                System.out.println("RESULT_SELECT_END_VIEW_DATE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_VIEW_DATE));
+                System.out.println("RESULT_FLAG = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_FLAG));
+                System.out.println("RESULT_TYPE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_TYPE));
+                System.out.println("RESULT_STATE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_STATE));
+                 */
+
             }
         }
     }
