@@ -10,7 +10,8 @@ import com.smarteist.imageslider.R;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class book_Fragment_2 extends Fragment {
+public class book_Fragment_2 extends Fragment{
+
 
     @Nullable
     @Override
@@ -19,5 +20,6 @@ public class book_Fragment_2 extends Fragment {
 
         return view;
     }
+
 
 }

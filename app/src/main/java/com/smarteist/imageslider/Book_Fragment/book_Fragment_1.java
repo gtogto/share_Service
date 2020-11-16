@@ -20,9 +20,6 @@ public class book_Fragment_1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.book_fragment_1, container, false);
 
-        ImageView imageView = view.findViewById(R.id.imageView);
-
-
         return view;
     }
 
