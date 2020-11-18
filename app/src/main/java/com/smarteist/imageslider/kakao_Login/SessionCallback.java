@@ -42,8 +42,8 @@ public class SessionCallback implements ISessionCallback {
             public void onSuccess(MeV2Response result) {
                 Log.e("SessionCallback :: ", "onSuccess");
 
-                String nickname = result.getNickname();
-                String profileImagePath = result.getProfileImagePath();
+                String nickname = result.getNickname();                 // user name
+                String profileImagePath = result.getProfileImagePath(); // profile picture
                 String thumnailPath = result.getThumbnailImagePath();
 
                 long id = result.getId();
