@@ -13,11 +13,17 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.exception.KakaoException;
+import com.kakao.util.helper.log.Logger;
 import com.smarteist.imageslider.R;
 import com.smarteist.shareOffice.main_page;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import static com.smarteist.autoimageslider.SliderView.TAG;
 
 public class kakaoLogin extends AppCompatActivity {
 
@@ -25,6 +31,13 @@ public class kakaoLogin extends AppCompatActivity {
         @Override
         public void onSessionOpened() {
             Log.i("KAKAO_SESSION", "로그인 성공");
+            //requestMe();
+
+            List<String> keys = new ArrayList<>();
+            keys.add("properties.nickname");
+            keys.add("properties.profile_image");
+            keys.add("kakao_account.email");
+
             UserManagement.getInstance().me(new MeV2ResponseCallback() {
                 @Override
                 public void onFailure(ErrorResult errorResult) {
@@ -45,9 +58,18 @@ public class kakaoLogin extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(MeV2Response result) {
+                    System.out.println("onSuccess function");
+
+                    String nickname = result.getNickname();                 // user name
+                    String profileImagePath = result.getProfileImagePath(); // profile picture
+                    String thumnailPath = result.getThumbnailImagePath();
+
+                    //Log.e("Profile : ", nickname + "");
+                    //Logger.d("email: " + result.getKakaoAccount().getEmail());
+
                     Intent intent = new Intent(getApplicationContext(), main_page.class);
-                    intent.putExtra("name", result.getNickname());
-                    intent.putExtra("profile", result.getProfileImagePath());
+                    intent.putExtra("name", nickname);  // get user KAKAO name
+                    //intent.putExtra("profile", result.getProfileImagePath());
                     startActivity(intent);
                     finish();
                 }
@@ -60,6 +82,37 @@ public class kakaoLogin extends AppCompatActivity {
             Log.e("KAKAO_SESSION", "로그인 실패", exception);
         }
     };
+
+    private void requestMe() {
+        System.out.println("requestMe function");
+
+        List<String> keys = new ArrayList<>();
+        keys.add("properties.nickname");
+        keys.add("properties.profile_image");
+        keys.add("kakao_account.email");
+
+        UserManagement.getInstance().me(keys, new MeV2ResponseCallback() {
+            @Override
+            public void onFailure(ErrorResult errorResult) {
+                String message = "failed to get user info. msg=" + errorResult;
+                Logger.d(message);
+            }
+
+            @Override
+            public void onSessionClosed(ErrorResult errorResult) {
+                Log.d(TAG,"카카오 세션 Close!");
+            }
+
+            @Override
+            public void onSuccess(MeV2Response response) {
+                System.out.println("onSuccess in requestMe");
+
+                Logger.d("user id : " + response.getId());
+                Logger.d("email: " + response.getKakaoAccount().getEmail());
+            }
+
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

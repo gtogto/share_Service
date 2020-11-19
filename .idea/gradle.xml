@@ -13,9 +13,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AirCalendar" />
+            <option value="$PROJECT_DIR$/Application" />
             <option value="$PROJECT_DIR$/android_DaumMap" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/autoimageslider" />
+            <option value="$PROJECT_DIR$/httpclient-4.5.10" />
+            <option value="$PROJECT_DIR$/httpcore-4.4.12" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import static com.kakao.usermgmt.StringSet.nickname;
+
 public class main_page extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
@@ -29,6 +32,7 @@ public class main_page extends AppCompatActivity {
 
     private TextView text_item_1, text_item_2, text_item_3, text_item_4, text_item_5, text_item_6, text_item_7, text_item_8, text_item_9;
     private TextView price_item_1, price_item_2, price_item_3, price_item_4, price_item_5, price_item_6, price_item_7, price_item_8, price_item_9;
+    public static String get_user_Name;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -53,6 +57,13 @@ public class main_page extends AppCompatActivity {
         price_item_5 = (TextView)findViewById(R.id.price_item_5); price_item_6 = (TextView)findViewById(R.id.price_item_6);
         price_item_7 = (TextView)findViewById(R.id.price_item_7); price_item_8 = (TextView)findViewById(R.id.price_item_8);
         price_item_9 = (TextView)findViewById(R.id.price_item_9);
+
+        Intent intent = new Intent(this.getIntent());
+        get_user_Name = intent.getExtras().getString("name");   // get user KAKAO name
+
+        Log.e("main Profile 1 : ", get_user_Name + "");
+
+        //Log.e("main Profile 2 : ", nickname + "");
 
         setOfficeText();    // Office information setup
 

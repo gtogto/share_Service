@@ -20,6 +20,8 @@ import com.yongbeom.aircalendar.core.AirCalendarIntent;
 
 import java.util.Calendar;
 
+import static com.smarteist.shareOffice.main_page.get_user_Name;
+
 
 public class calendarDate_Book extends AppCompatActivity {
     public final static int REQUEST_CODE = 1;
@@ -29,7 +31,7 @@ public class calendarDate_Book extends AppCompatActivity {
 
     private static int Office_Name_Num;
     private static TextView result_name,
-            result_check_in_time, result_check_out_time;
+            result_check_in_time, result_check_out_time, get_user_name;
     private String get_date_Start, get_date_End;
 
     @Override
@@ -48,6 +50,7 @@ public class calendarDate_Book extends AppCompatActivity {
         result_name = (TextView)findViewById(R.id.result_name);
         result_check_in_time = (TextView)findViewById(R.id.result_check_in_time);
         result_check_out_time = (TextView)findViewById(R.id.result_check_out_time);
+        get_user_name = (TextView)findViewById(R.id.test2);
 
         book_fragment_1 = new book_Fragment_1();
         book_fragment_2 = new book_Fragment_2();
@@ -140,6 +143,8 @@ public class calendarDate_Book extends AppCompatActivity {
 
                 result_check_in_time.setText(get_date_Start);
                 result_check_out_time.setText(get_date_End);
+                System.out.println("Get USER NAME : " + get_user_Name);     // get user KAKAO name
+                get_user_name.setText(get_user_Name);
                 /*
                 System.out.println("RESULT_SELECT_START_DATE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_START_DATE));
                 System.out.println("RESULT_SELECT_END_DATE = " + data.getStringExtra(AirCalendarDatePickerActivity.RESULT_SELECT_END_DATE));

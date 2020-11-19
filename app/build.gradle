@@ -46,4 +46,6 @@ dependencies {
     implementation 'com.github.yongbeam:AirCalendar:1.2.1'                  // for Calendar
     implementation 'joda-time:joda-time:2.10.1'
     implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.2'//for KAKAK Login
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 }
