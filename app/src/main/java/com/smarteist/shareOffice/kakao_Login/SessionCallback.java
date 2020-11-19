@@ -1,4 +1,4 @@
-package com.smarteist.imageslider.kakao_Login;
+package com.smarteist.shareOffice.kakao_Login;
 
 import android.util.Log;
 

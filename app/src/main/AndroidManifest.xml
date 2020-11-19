@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.smarteist.imageslider">
+    package="com.smarteist.imageslider"
+    android:versionCode="1"
+    android:versionName="1.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- for BLE Services -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
     </uses-permission>
 
@@ -17,18 +23,18 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
 
-        android:name="com.smarteist.imageslider.kakao_Login.GlobalApplication"
+        android:name="com.smarteist.shareOffice.kakao_Login.GlobalApplication"
 
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
 
-        <activity android:name="com.smarteist.imageslider.kakao_Login.kakaoLogin">
+        <activity android:name="com.smarteist.shareOffice.kakao_Login.kakaoLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.smarteist.imageslider.main_page">
+        <activity android:name="com.smarteist.shareOffice.main_page">
         </activity>
 
         <!--
@@ -40,15 +46,15 @@
         </activity> -->
 
         <!-- Office View Details -->
-        <activity android:name="com.smarteist.imageslider.MainActivity">
+        <activity android:name="com.smarteist.shareOffice.MainActivity">
         </activity>
 
-        <activity android:name="com.smarteist.imageslider.Book_Fragment.calendarDate_Book"
+        <activity android:name="com.smarteist.shareOffice.Book_Fragment.calendarDate_Book"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-        <activity android:name="com.smarteist.imageslider.Book_img_2"/>
-        <activity android:name="com.smarteist.imageslider.Book_img_3"/>
-        <activity android:name="com.smarteist.imageslider.Book_img_4"/>
+        <activity android:name="com.smarteist.shareOffice.Book_img_2"/>
+        <activity android:name="com.smarteist.shareOffice.Book_img_3"/>
+        <activity android:name="com.smarteist.shareOffice.Book_img_4"/>
 
 
 

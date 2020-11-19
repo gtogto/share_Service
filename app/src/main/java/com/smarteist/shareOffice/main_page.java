@@ -1,15 +1,10 @@
-package com.smarteist.imageslider;
+package com.smarteist.shareOffice;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,9 +14,8 @@ import android.widget.Toast;
 
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
-import com.smarteist.imageslider.kakao_Login.kakaoLogin;
-
-import java.security.MessageDigest;
+import com.smarteist.imageslider.R;
+import com.smarteist.shareOffice.kakao_Login.kakaoLogin;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,8 +1,10 @@
-package com.smarteist.imageslider;
+package com.smarteist.shareOffice;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.smarteist.imageslider.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 

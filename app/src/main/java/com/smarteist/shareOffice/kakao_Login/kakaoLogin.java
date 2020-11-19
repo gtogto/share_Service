@@ -1,4 +1,4 @@
-package com.smarteist.imageslider.kakao_Login;
+package com.smarteist.shareOffice.kakao_Login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.exception.KakaoException;
 import com.smarteist.imageslider.R;
-import com.smarteist.imageslider.main_page;
+import com.smarteist.shareOffice.main_page;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

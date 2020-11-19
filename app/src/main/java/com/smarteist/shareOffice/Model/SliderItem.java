@@ -1,4 +1,4 @@
-package com.smarteist.imageslider.Model;
+package com.smarteist.shareOffice.Model;
 
 public class SliderItem {
 

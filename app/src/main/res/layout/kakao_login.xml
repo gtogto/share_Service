@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.smarteist.imageslider.kakao_Login.kakaoLogin">
+    tools:context="com.smarteist.imageslider.com.smarteist.shareOffice.kakao_Login.kakaoLogin">
 
 
     <LinearLayout

@@ -1,4 +1,4 @@
-package com.smarteist.imageslider;
+package com.smarteist.shareOffice;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -25,9 +25,10 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.smarteist.imageslider.Book_Fragment.calendarDate_Book;
-import com.smarteist.imageslider.Model.SliderItem;
-import com.smarteist.imageslider.kakao_Login.kakaoLogin;
+import com.smarteist.shareOffice.Book_Fragment.calendarDate_Book;
+import com.smarteist.shareOffice.Model.SliderItem;
+import com.smarteist.imageslider.R;
+import com.smarteist.shareOffice.kakao_Login.kakaoLogin;
 
 //import net.daum.android.map.MapView;
 import net.daum.mf.map.api.MapView;

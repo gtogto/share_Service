@@ -1,4 +1,4 @@
-package com.smarteist.imageslider;
+package com.smarteist.shareOffice;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,7 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.SliderViewAdapter;
-import com.smarteist.imageslider.Model.SliderItem;
+import com.smarteist.shareOffice.Model.SliderItem;
+import com.smarteist.imageslider.R;
+
 import java.util.ArrayList;
 import java.util.List;
 

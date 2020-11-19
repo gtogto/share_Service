@@ -1,9 +1,8 @@
-package com.smarteist.imageslider.Book_Fragment;
+package com.smarteist.shareOffice.Book_Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;

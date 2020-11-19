@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.smarteist.imageslider.Book_Fragment.calendarDate_Book"
+    tools:context="com.smarteist.imageslider.com.smarteist.shareOffice.Book_Fragment.calendarDate_Book"
     tools:showIn="@layout/book_layout">
 
     <LinearLayout

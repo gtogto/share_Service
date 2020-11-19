@@ -1,4 +1,4 @@
-package com.smarteist.imageslider.Book_Fragment;
+package com.smarteist.shareOffice.Book_Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
