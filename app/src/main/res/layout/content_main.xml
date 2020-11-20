@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.smarteist.imageslider.com.smarteist.shareOffice.Book_Fragment.calendarDate_Book"
+    tools:context="com.smarteist.shareOffice.Book_Fragment.calendarDate_Book"
     tools:showIn="@layout/book_layout">
 
     <LinearLayout
@@ -149,8 +149,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_marginTop="15dp"
-                android:layout_height="1dp"
-                android:background="#000000"/>
+                android:layout_height="2dp"
+                android:background="@color/color_purple2"/>
 
             <LinearLayout
                 android:id="@+id/line3"
@@ -290,8 +290,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_marginTop="15dp"
-                android:layout_height="1dp"
-                android:background="#000000"/>
+                android:layout_height="2dp"
+                android:background="@color/color_purple2"/>
 
 
         </LinearLayout>

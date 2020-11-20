@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F5FB"
-    tools:context="com.smarteist.imageslider.com.smarteist.shareOffice.Book_Fragment.calendarDate_Book">
+    tools:context="com.smarteist.shareOffice.Book_Fragment.calendarDate_Book">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -23,8 +23,8 @@
             android:id="@+id/tabs"
             app:tabMode="fixed"
             app:tabGravity="fill"
-            app:tabTextColor="@color/color_green1"
-            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextColor="@color/color_Black"
+            app:tabSelectedTextColor="@color/color_purple3"
             app:fontFamily="sans-serif-black"
             android:elevation="1dp"
             android:background="@android:color/background_light"

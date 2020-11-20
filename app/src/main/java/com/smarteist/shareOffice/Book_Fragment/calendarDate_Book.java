@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.smarteist.imageslider.R;
+import com.smarteist.shareOffice.MainActivity;
+import com.smarteist.shareOffice.main_page;
 import com.yongbeom.aircalendar.AirCalendarDatePickerActivity;
 import com.yongbeom.aircalendar.core.AirCalendarIntent;
 
@@ -121,7 +123,7 @@ public class calendarDate_Book extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        this.setTitle("예약 정보 확인 Activity");
+        this.setTitle("예약 정보 확인");
 
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -200,6 +202,15 @@ public class calendarDate_Book extends AppCompatActivity {
                 System.out.println("Unable to get a office name");
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back button pressed", Toast.LENGTH_SHORT).show();
+        final Intent intent = new Intent(this, main_page.class);
+        intent.putExtra("name", get_user_Name);  // get user KAKAO name
+        startActivity(intent);
+        super.onBackPressed();
     }
 
 }
