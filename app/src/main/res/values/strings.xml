@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">공유공간 서비스</string>
     <string name="action_settings">Settings</string>
+    <string name="action_logout">KAKAO Logout</string>
 
     <string name="office_name_item1">[강남] 가라지강남</string>
     <string name="office_name_item2">[홍대역] 비라운지</string>

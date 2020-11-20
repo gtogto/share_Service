@@ -212,11 +212,11 @@
                 android:background="#000000"/>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onClick_Book"
-                android:text="예약 하기">
-            </Button>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick_Book"
+            android:text="예약 하기">
+        </Button>
 
         </LinearLayout>
 

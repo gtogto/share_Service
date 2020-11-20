@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -211,6 +212,10 @@ public class calendarDate_Book extends AppCompatActivity {
         intent.putExtra("name", get_user_Name);  // get user KAKAO name
         startActivity(intent);
         super.onBackPressed();
+    }
+
+    public  void onClick_final_book(View v) {
+
     }
 
 }

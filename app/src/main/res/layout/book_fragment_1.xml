@@ -9,7 +9,7 @@
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="400dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <TextView

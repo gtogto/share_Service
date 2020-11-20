@@ -293,6 +293,14 @@
                 android:layout_height="2dp"
                 android:background="@color/color_purple2"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick_final_book"
+                android:text="예약 확정"
+                android:textSize="20sp"
+                android:textStyle="bold"></Button>
+
 
         </LinearLayout>
 
