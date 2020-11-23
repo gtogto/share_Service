@@ -56,6 +56,8 @@
         <activity android:name="com.smarteist.shareOffice.Book_img_3"/>
         <activity android:name="com.smarteist.shareOffice.Book_img_4"/>
 
+        <activity android:name="com.smarteist.shareOffice.Book_Fragment.reservationActivity"/>
+
 
 
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="781fc7ecc485c7e5cb6f9f823ed44136"/>
