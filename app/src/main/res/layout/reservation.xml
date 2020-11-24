@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Secure Access Lock Platform"
+                android:text="@string/reservation_toolbar"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title"
                 android:textSize="20sp"
@@ -33,13 +33,12 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingRight="25dp"
-                android:layout_alignParentRight="true">
+                android:layout_gravity="end">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -87,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="20dp"
-                        android:text="reservation Number"
+                        android:text="@string/reservation_number"
                         android:textSize="15sp"
                         android:textColor="@color/color_Black"
                         />
@@ -95,7 +94,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pin CODE"
+                        android:text="@string/reservation_pincode"
                         android:layout_marginRight="20dp"
                         android:layout_alignParentRight="true"
                         android:textSize="15sp"
@@ -166,10 +165,56 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="20dp"
                         android:src="@drawable/phone_img">
-
                     </ImageView>
 
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_whiteGray1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/color_White">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/address_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="23dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/map_pin_img">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="270dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/address_btn"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/reservation_address_1"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_purple2"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_whiteGray1"/>
 
             </LinearLayout>
 
