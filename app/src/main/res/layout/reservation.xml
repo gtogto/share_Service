@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -13,16 +13,28 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/color_purple2"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secure Access Lock Platform"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title"
+                android:textSize="20sp"
+                android:textColor="@color/color_White"
+                android:textStyle="bold"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:paddingRight="50dp"
+                android:paddingRight="25dp"
                 android:layout_alignParentRight="true">
 
                 <LinearLayout
@@ -33,7 +45,7 @@
                     <ImageView
                         android:id="@+id/Favorites_btn"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:onClick="onClick_BLE"
                         android:src="@drawable/ic_action_device_access_bluetooth_searching"/>
 
@@ -41,18 +53,128 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/color_green2"
+                android:text="@string/reservation_banner"
+                android:textSize="20sp"
+                android:textColor="@color/color_White"
+                android:textStyle="bold">
+            </Button>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_whiteGray1"
                 android:orientation="vertical">
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="reservation Number"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_Black"
+                        />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pin CODE"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_Black"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="12345678"
+                        android:textSize="20sp"
+                        android:textColor="@color/color_Black"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1234"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:textSize="20sp"
+                        android:textColor="@color/color_Black"
+                        android:textStyle="bold"
+                        />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/color_White">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="23dp"
+                        android:text="코워킹스페이스 GARAGE 강남점"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_purple2"/>
+
+                    <ImageView
+                        android:id="@+id/call_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/phone_img">
+
+                    </ImageView>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
-        </androidx.appcompat.widget.Toolbar>
 
+        </LinearLayout>
 
     </LinearLayout>
 
