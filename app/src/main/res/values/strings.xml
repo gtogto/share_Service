@@ -3,12 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_logout">KAKAO Logout</string>
 
-    <!-- Reservation XML -->
-    <string name="reservation_toolbar">Secure Access Lock Platform</string>
-    <string name="reservation_banner">예약이 확정되었습니다</string>
-    <string name="reservation_number">reservation Number</string>
-    <string name="reservation_pincode">Pin CODE</string>
-
+    <!-- main_page xml-->
     <string name="office_name_item1">[강남] 가라지강남</string>
     <string name="office_name_item2">[홍대역] 비라운지</string>
     <string name="office_name_item3">[강남역] 토즈워크</string>
@@ -20,6 +15,7 @@
     <string name="office_name_item9">[세글자] 네글자가</string>
 
 
+    <!-- activity_main.xml -->
     <string name="office_information_1">
         · 이용시간 : 08:00 | 퇴실시간 : 22:00\n· Free WiFi\n· 전 객실 금연\n</string>
     <string name="office_information_2">
@@ -29,5 +25,15 @@
 
     <string name="reservation_address_1">서울특별시 강남구 역삼동 테헤란로 128 성곡빌딩</string>
 
+    <!-- Reservation xml -->
+    <string name="reservation_toolbar">Secure Access Lock</string>
+    <string name="reservation_banner">예약이 확정되었습니다</string>
+    <string name="reservation_number">reservation Number</string>
+    <string name="reservation_pincode">Pin CODE</string>
+    <string name="reservation_checkin">CHECK IN</string>
+    <string name="reservation_checkout">CHECK OUT</string>
+    <string name="reservation_checkin_date">2020-11-01 월</string>
+    <string name="reservation_checkout_date">2020-11-01 월</string>
+    <string name="reservation_1st_key_request">Request for 1st PASSWORD</string>
 
 </resources>

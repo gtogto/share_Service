@@ -181,7 +181,6 @@
                     android:id="@+id/office_info_txt3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="확인사항 및 기타"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
