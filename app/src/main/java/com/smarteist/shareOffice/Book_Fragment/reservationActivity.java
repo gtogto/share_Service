@@ -50,11 +50,11 @@ public class reservationActivity extends AppCompatActivity {
 
                 if ( i == 0 ){
                     ble_btn.setImageResource(R.drawable.ic_action_device_access_bluetooth_searching_off);
-                    Toast.makeText(getApplicationContext(), "Clicked BLE button on", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Clicked BLE button off", Toast.LENGTH_LONG).show();
                 }
                 else{
                     ble_btn.setImageResource(R.drawable.ic_action_device_access_bluetooth_searching);
-                    Toast.makeText(getApplicationContext(), "Clicked BLE button off", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Clicked BLE button on", Toast.LENGTH_LONG).show();
                 }
             }
         });
