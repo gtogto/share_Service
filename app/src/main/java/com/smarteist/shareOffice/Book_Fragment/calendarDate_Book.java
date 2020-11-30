@@ -214,7 +214,7 @@ public class calendarDate_Book extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    public  void onClick_final_book(View v) {
+    public void onClick_final_book(View v) {
         Intent intent = new Intent(getApplicationContext(), reservationActivity.class);
         startActivity(intent);
     }

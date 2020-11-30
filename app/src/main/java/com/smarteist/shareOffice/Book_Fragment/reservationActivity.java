@@ -97,4 +97,12 @@ public class reservationActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    public void onClick_1st (View v){
+        Toast.makeText(getApplicationContext(), "Clicked 1st key button", Toast.LENGTH_LONG).show();
+    }
+
+    public void onClick_2nd (View v){
+        Toast.makeText(getApplicationContext(), "Clicked Open Door button", Toast.LENGTH_LONG).show();
+    }
+
 }

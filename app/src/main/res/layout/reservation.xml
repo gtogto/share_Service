@@ -300,6 +300,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/secure_key_icon1"
+                android:onClick="onClick_1st"
                 android:paddingRight="20dip"
                 android:text="@string/reservation_1st_key_request"
                 android:textSize="20sp"
@@ -417,7 +418,8 @@
                     android:textSize="20sp"
                     android:paddingRight="20dip"
                     android:drawableRight="@drawable/secure_key_icon"
-                    android:text="@string/reservation_door_Open">
+                    android:text="@string/reservation_door_Open"
+                    android:onClick="onClick_2nd">
 
                 </Button>
 
