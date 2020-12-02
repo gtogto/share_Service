@@ -35,6 +35,14 @@
             </intent-filter>
         </activity>
 
+        <!-- Toolbar BLE Menu -->
+        <activity
+            android:name="com.smarteist.shareOffice.BLE.DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_device"
+            android:theme="@android:style/Theme.Holo.Dialog" />
+
+
         <activity android:name="com.smarteist.shareOffice.main_page">
         </activity>
 

@@ -20,6 +20,8 @@ import com.google.gson.JsonObject;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.smarteist.imageslider.R;
+import com.smarteist.shareOffice.BLE.BluetoothChatFragment;
+import com.smarteist.shareOffice.BLE.DeviceListActivity;
 import com.smarteist.shareOffice.WasService;
 import com.smarteist.shareOffice.kakao_Login.kakaoLogin;
 import com.smarteist.shareOffice.main_page;
@@ -32,8 +34,10 @@ import java.net.UnknownHostException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -87,6 +91,19 @@ public class reservationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reservation);
 
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            BluetoothChatFragment fragment = new BluetoothChatFragment();
+            transaction.replace(R.id.sample_content_fragment, fragment);
+            transaction.commit();
+        }
+
+        Toolbar toolbar;
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
+        getSupportActionBar().setTitle("Office Share");
+
         try {
             socket = new DatagramSocket(5000);
             serverAddr = InetAddress.getByName(sIP);
@@ -96,7 +113,7 @@ public class reservationActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ble_btn = (ImageView)findViewById(R.id.ble_btn);
+        //ble_btn = (ImageView)findViewById(R.id.ble_btn);
         call_btn = (ImageView)findViewById(R.id.call_btn);
 
         mFirst_PW = (Button)findViewById(R.id.mfirst_PW);
@@ -114,6 +131,7 @@ public class reservationActivity extends AppCompatActivity {
             }
         });
 
+        /*
         ble_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +146,7 @@ public class reservationActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Clicked BLE button on", Toast.LENGTH_LONG).show();
                 }
             }
-        });
+        });*/
 
         mReceiveData = new ReceiveData();
         mReceiveData.start();
@@ -223,40 +241,9 @@ public class reservationActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_navigationmenu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.account:
-                Toast.makeText(getApplicationContext(), "Account menu", Toast.LENGTH_LONG).show();
-                return true;
-
-            case R.id.logout:
-                Toast.makeText(getApplicationContext(), "Log-out menu", Toast.LENGTH_LONG).show();
-                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
-                    @Override
-                    public void onCompleteLogout() {
-                        Intent intent = new Intent(reservationActivity.this, kakaoLogin.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                    }
-                });
-                return true;
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     // UDP
     //데이터 보내는 쓰레드 클래스
-    static class SendData extends Thread {
+    public static class SendData extends Thread {
 
         private byte destId = 0x30;
         private byte sourceId = 0x30;
@@ -345,5 +332,9 @@ public class reservationActivity extends AppCompatActivity {
     public void onClick_2nd (View v){
         Toast.makeText(getApplicationContext(), "Clicked Open Door button", Toast.LENGTH_LONG).show();
     }*/
+
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.bluetooth_chat, menu);
+    }
 
 }
