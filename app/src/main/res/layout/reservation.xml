@@ -297,10 +297,10 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/mfirst_PW"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/secure_key_icon1"
-                android:onClick="onClick_1st"
                 android:paddingRight="20dip"
                 android:text="@string/reservation_1st_key_request"
                 android:textSize="20sp"
@@ -326,9 +326,9 @@
                         android:id="@+id/first_PW"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_marginLeft="23dp"
                         android:layout_marginRight="20dp"
-                        android:layout_gravity="center"
                         android:text="@string/reservation_1st_key_receive"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -412,6 +412,7 @@
                     android:background="@color/color_whiteGray1" />
 
                 <Button
+                    android:id="@+id/mseond_PW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -419,7 +420,7 @@
                     android:paddingRight="20dip"
                     android:drawableRight="@drawable/secure_key_icon"
                     android:text="@string/reservation_door_Open"
-                    android:onClick="onClick_2nd">
+                    >
 
                 </Button>
 
