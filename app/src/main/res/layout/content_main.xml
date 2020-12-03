@@ -301,6 +301,14 @@
                 android:textSize="20sp"
                 android:textStyle="bold"></Button>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick_btn"
+                android:text="BLE Test"
+                android:textSize="20sp"
+                android:textStyle="bold"></Button>
+
 
         </LinearLayout>
 

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.smarteist.imageslider.R;
+import com.smarteist.shareOffice.BLE.DeviceScan;
 import com.smarteist.shareOffice.MainActivity;
 import com.smarteist.shareOffice.main_page;
 import com.yongbeom.aircalendar.AirCalendarDatePickerActivity;
@@ -217,6 +218,11 @@ public class calendarDate_Book extends AppCompatActivity {
     public void onClick_final_book(View v) {
         Intent intent = new Intent(getApplicationContext(), reservationActivity.class);
         startActivity(intent);
+    }
+
+    public void onClick_btn(View v) {
+        Intent intent_1 = new Intent(getApplicationContext(), DeviceScan.class);
+        startActivityForResult(intent_1, 201);
     }
 
 }
