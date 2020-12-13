@@ -1,5 +1,6 @@
 package com.smarteist.shareOffice.Book_Fragment;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
@@ -8,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,6 +33,8 @@ import com.smarteist.imageslider.R;
 import com.smarteist.shareOffice.BLE.BluetoothLeService;
 import com.smarteist.shareOffice.BLE.DeviceScanActivity;
 import com.smarteist.shareOffice.BLE.SampleGattAttributes;
+import com.smarteist.shareOffice.POST.Post;
+import com.smarteist.shareOffice.POST.ReservationPost;
 import com.smarteist.shareOffice.WasService;
 
 import java.net.DatagramPacket;
@@ -47,8 +52,6 @@ import java.util.TimerTask;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -56,29 +59,42 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.smarteist.shareOffice.BLE.BluetoothLeService.EXTRA_DATA;
+import static com.smarteist.shareOffice.Book_Fragment.calendarDate_Book.DEVICE_NUMBER;
+import static com.smarteist.shareOffice.Book_Fragment.calendarDate_Book.get_date_End;
+import static com.smarteist.shareOffice.Book_Fragment.calendarDate_Book.get_date_Start;
+import static com.smarteist.shareOffice.main_page.get_user_Name;
 
-public class reservationActivity extends AppCompatActivity {
+public class reservationActivity extends Activity implements View.OnClickListener {
+
     private final static String TAG = "DCA";
-
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
+
+    private static TextView result_name, office_address,
+            result_check_in_time, result_check_out_time, get_user_name;
+    private static String dStart, dEnd;
+
 
     //TODO: BLE variable
     private TextView mConnectionState;
     private SimpleDateFormat mFormat = new SimpleDateFormat("HH:mm:ss");
     public static final int DUMP = -1;
 
+    private TextView mDataTextView;
+    private ScrollView mDataScrollView;
+
     public String mDeviceName;
     public String mDeviceAddress;
     public static BluetoothLeService mBluetoothLeService;
-    private boolean mConnected = false;
+    private BluetoothGattCharacteristic mWriteCharacteristic;
     private BluetoothGattCharacteristic mNotifyCharacteristic;
-
-    private final String LIST_NAME = "NAME";
-    private final String LIST_UUID = "UUID";
 
     public static ArrayList<ArrayList<BluetoothGattCharacteristic>> mGattCharacteristics =
             new ArrayList<ArrayList<BluetoothGattCharacteristic>>();
+    private boolean mConnected = false;
+
+    private final String LIST_NAME = "NAME";
+    private final String LIST_UUID = "UUID";
 
     public static byte[] packet;
     public static byte[] send_packet;
@@ -126,6 +142,10 @@ public class reservationActivity extends AppCompatActivity {
     ImageView ble_btn;
     int i = 0;
 
+    public static String instantPassword;
+    private final String BASE_URL = "http://192.168.0.10:8081";
+    private WasService WasService_Post, SendReservationPost;
+
     // Code to manage Service lifecycle.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
@@ -148,6 +168,9 @@ public class reservationActivity extends AppCompatActivity {
             System.out.println("main service disconnect");
         }
     };
+
+    public void onClick(View v) {
+    }
 
     private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
         @Override
@@ -214,15 +237,20 @@ public class reservationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reservation);
+        sendUserPost(); // Reservation information send to Server
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         System.out.println("mBluetoothLeService value main = " + mBluetoothLeService) ;
 
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
+
+        mDataTextView = (TextView) findViewById(R.id.send_data_tv);
+        mDataScrollView = (ScrollView) findViewById(R.id.sd_scroll);
 
         try {
             socket = new DatagramSocket(5000);
@@ -247,6 +275,11 @@ public class reservationActivity extends AppCompatActivity {
         tFirst_PW = (TextView)findViewById(R.id.first_PW);
         tSecond_PW = (TextView)findViewById(R.id.second_PW);
 
+        result_name = (TextView)findViewById(R.id.device_name);
+        office_address = (TextView)findViewById(R.id.office_address);
+        result_check_in_time = (TextView)findViewById(R.id.result_check_in_time);
+        result_check_out_time = (TextView)findViewById(R.id.result_check_out_time);
+
         call_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -266,7 +299,6 @@ public class reservationActivity extends AppCompatActivity {
                 startActivityForResult(intent_1, 201);
                 /*
                 i = 1 - i;
-
                 if ( i == 0 ){
                     ble_btn.setImageResource(R.drawable.ic_action_device_access_bluetooth_searching_off);
                     Toast.makeText(getApplicationContext(), "Clicked BLE button off", Toast.LENGTH_LONG).show();
@@ -279,9 +311,11 @@ public class reservationActivity extends AppCompatActivity {
                 }*/
             }
         });
-
+        /*
         mReceiveData = new ReceiveData();
-        mReceiveData.start();
+        mReceiveData.start();*/
+
+        //mSendData.start();
 
         // Timer
         tt = new TimerTask() {
@@ -300,17 +334,25 @@ public class reservationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Clicked 1st key button", Toast.LENGTH_LONG).show();
-                final String server_url = "http://192.168.0.10:8081";
+                //final String server_url = "http://192.168.0.10:8081";
                 mSendWasData = new SendWasData(50010001, 1);
                 mSendWasData.action();
-                timer.schedule(tt,0,2000);
+                //timer.schedule(tt,0,2000);
                 System.out.println("gto -> SendWasData");
             }
         });
 
+
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
+        //Intent result_intent = new Intent(this.getIntent());
+        //Office_Name_Num = result_intent.getIntExtra("office_Num", 1);
+        //dStart = result_intent.getExtras().getString("sDate");
+        //dEnd = result_intent.getExtras().getString("eDate");
+        setUp_Office_name();    // set a office get name
+        result_check_in_time.setText(get_date_Start);
+        result_check_out_time.setText(get_date_End);
     }
 
     class SendWasData{
@@ -341,7 +383,7 @@ public class reservationActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     if (response.isSuccessful()) {
-                        String instantPassword = response.body().get("instantPassword").getAsString();
+                        instantPassword = response.body().get("instantPassword").getAsString();
                         System.out.println("gto -> instantPassword = " + instantPassword);
                         System.out.println("gto -> instantPassword = " + response.body());
                         String st = response.body().get("st").getAsString();
@@ -354,7 +396,7 @@ public class reservationActivity extends AppCompatActivity {
 
                             if(receiveWasData[2].equals("1")){
                                 tFirst_PW.setTextColor(Color.parseColor(("red")));
-                                tFirst_PW.setText(instantPassword.toCharArray(), 3, 5);
+                                tFirst_PW.setText(instantPassword.toCharArray(), 2, 6);
                                 tFlag = true;
                             }else{
                                 tFirst_PW.setTextColor(Color.parseColor(("blue")));
@@ -417,7 +459,8 @@ public class reservationActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-        //unbindService(mServiceConnection);
+        unbindService(mServiceConnection);
+        tt.cancel();
         mBluetoothLeService = null;
         Log.d(TAG, "setup onDestroy request");
     }
@@ -432,9 +475,9 @@ public class reservationActivity extends AppCompatActivity {
     }
 
     public void displayData(byte[] packet) {
+        getStringPacket(reservationActivity.packet);
 
         if (packet != null) {
-
             System.out.println("Enable packet");
         }
 
@@ -552,25 +595,190 @@ public class reservationActivity extends AppCompatActivity {
         System.out.println("run device UUID = " + uuid);
     }
 
+    public void onClick_toDoor(View v) {
+        // Test Code for SAL_Door, SAL_GW
+        byte[] cmd_bytes = new byte[10];
+        cmd_bytes[0] = 0x5B;
+        cmd_bytes[1] = 0x31;
+        cmd_bytes[2] = 0x58;
+        cmd_bytes[3] = 0x31;
+        cmd_bytes[4] = 0x38;
+        cmd_bytes[5] = 0x38;
+        cmd_bytes[6] = 0x32;
+        cmd_bytes[7] = 0x32;
+        cmd_bytes[8] = 0x39;
+        cmd_bytes[9] = 0x5D;
+        mBluetoothLeService.writeCharacteristic(getWriteGattCharacteristic(), cmd_bytes);
+        /*
+        if (instantPassword.length() == 8) {
+
+            byte[] byteArrayForPlain = instantPassword.getBytes();
+
+            String hexString = "";
+
+            for (byte b : byteArrayForPlain) {
+                hexString += Integer.toString((b & 0xF0) >> 4, 16);
+                hexString += Integer.toString(b & 0x0F, 16);
+            }
+            System.out.println("Hex String : " + hexString);
+            //7031313637333138
+
+            byte[] pPW_ByteArray = hexStringToByteArray(hexString);
+
+            byte[] cmd_bytes = new byte[10];
+            cmd_bytes[0] = 0x5B;
+            //cmd_bytes[1] = pPW_ByteArray[1];
+            cmd_bytes[1] = 0x32;
+            cmd_bytes[2] = 0x58;
+            cmd_bytes[3] = pPW_ByteArray[2];
+            cmd_bytes[4] = pPW_ByteArray[3];
+            cmd_bytes[5] = pPW_ByteArray[4];
+            cmd_bytes[6] = pPW_ByteArray[5];
+            cmd_bytes[7] = pPW_ByteArray[6];
+            cmd_bytes[8] = pPW_ByteArray[7];
+            cmd_bytes[9] = 0x5D;
+            mBluetoothLeService.writeCharacteristic(getWriteGattCharacteristic(), cmd_bytes);
+        }*/
+        /*
+        mSendData = new SendData();
+        mSendData.start();*/
+        //createPost();     // send to post message (request message)
+        //sendUserPost();
+    }
+
+
+    private void sendUserPost() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        WasService_Post = retrofit.create(WasService.class);
+
+        Post post = new Post("gtogto", DEVICE_NUMBER, get_user_Name);
+
+        Call<Post> call = WasService_Post.createPost(post);
+
+        call.enqueue(new Callback<Post>() {
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                if (!response.isSuccessful()) {
+                    //textViewResult.setText("code: " + response.code());
+                    System.out.println("Post Success : " + response.code());
+                    return;
+                }
+
+                Post postResponse = response.body();
+
+                String content = "";
+                //content += "Code : " + response.code() + "\n";
+                //content += "Id: " + postResponse.getId() + "\n";
+                content += "User Id: " + postResponse.getUserId() + "\n";
+                content += "Device No: " + postResponse.getDeviceNo() + "\n";
+                content += "User Name: " + postResponse.getUserName() + "\n";
+
+                //textViewResult.setText(content);
+                System.out.println("Post result : " + content);
+            }
+
+            @Override
+            public void onFailure(Call<Post> call, Throwable t) {
+                //textViewResult.setText(t.getMessage());
+                System.out.println("Post failure : " + t.getMessage());
+            }
+        });
+
+    }
+
+    /*
+    private void createPost() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        WasService_Post = retrofit.create(WasService.class);
+
+        Post post = new Post("50010001", get_user_Name);
+
+        Call<Post> call = WasService_Post.createPost(post);
+
+        call.enqueue(new Callback<Post>() {
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                if (!response.isSuccessful()) {
+                    //textViewResult.setText("code: " + response.code());
+                    System.out.println("Post Success : " + response.code());
+                    return;
+                }
+
+                Post postResponse = response.body();
+
+                String content = "";
+                //content += "Code : " + response.code() + "\n";
+                //content += "Id: " + postResponse.getId() + "\n";
+                //content += "User Id: " + postResponse.getUserId() + "\n";
+                content += "deviceNo: " + postResponse.getDeviceNo() + "\n";
+                content += "userName: " + postResponse.getUserName() + "\n";
+
+                //textViewResult.setText(content);
+                System.out.println("Post result : " + content);
+            }
+
+            @Override
+            public void onFailure(Call<Post> call, Throwable t) {
+                //textViewResult.setText(t.getMessage());
+                System.out.println("Post failure : " + t.getMessage());
+            }
+        });
+
+    }*/
 
 
     // UDP
     //데이터 보내는 쓰레드 클래스
     public static class SendData extends Thread {
+        /*
+        public void run(){
+            try{
+                //UDP 통신용 소켓 생성
+                //DatagramSocket socket = new DatagramSocket();
+                //서버 주소 변수
+                //InetAddress serverAddr = InetAddress.getByName(sIP);
 
-        private byte destId = 0x30;
-        private byte sourceId = 0x30;
-        private byte serviceCode = 0x30;
+                //보낼 데이터 생성
+                byte[] buf  = ("gto").getBytes();
 
+                //패킷으로 변경
+                DatagramPacket packet = new DatagramPacket(buf , buf .length, serverAddr, sPORT);
+
+                //패킷 전송!
+                socket.send(packet);
+
+                //데이터 수신 대기
+                socket.receive(packet);
+                //데이터 수신되었다면 문자열로 변환
+                String msg = new String(packet.getData());
+                System.out.println("send packet -> "+msg);
+
+                //txtView에 표시
+            }catch (Exception e){
+
+            }
+        }*/
+
+        private byte destId = 0x47;
+        private byte sourceId = 0x54;
+        private byte serviceCode = 0x4F;
+        /*
         public SendData(byte argDestId, byte argSourceId, byte argServiceCode){
             this.destId = argDestId;
             this.sourceId = argSourceId;
             this.serviceCode = argServiceCode;
-        }
+        }*/
 
         public void run() {
             try {
-
                 // Creation send message
                 //byte[] buf = ("H").getBytes();
                 for(int i=0; i<32; i++){
@@ -584,8 +792,8 @@ public class reservationActivity extends AppCompatActivity {
 
                 // Convert packet
                 DatagramPacket packet = new DatagramPacket(sendPacket, sendPacket.length, serverAddr, sPORT);
-
                 socket.send(packet);
+
 
             } catch (Exception e) {
 
@@ -628,9 +836,56 @@ public class reservationActivity extends AppCompatActivity {
         }
     }
 
+    public void setUp_Office_name() {
+
+        switch (calendarDate_Book.Office_Name_Num) {
+            case 1:
+                result_name.setText(getString(R.string.office_info_item1));
+                office_address.setText(getString(R.string.office_address_item1));
+                break;
+            case 2:
+                result_name.setText(getString(R.string.office_info_item2));
+                office_address.setText(getString(R.string.office_address_item2));
+                break;
+            case 3:
+                result_name.setText(getString(R.string.office_info_item3));
+                office_address.setText(getString(R.string.office_address_item3));
+                break;
+            case 4:
+                result_name.setText(getString(R.string.office_info_item4));
+                office_address.setText(getString(R.string.office_address_item4));
+                break;
+            case 5:
+                result_name.setText(getString(R.string.office_info_item5));
+                office_address.setText(getString(R.string.office_address_item5));
+                break;
+            case 6:
+                result_name.setText(getString(R.string.office_info_item6));
+                office_address.setText(getString(R.string.office_address_item6));
+                break;
+            case 7:
+                result_name.setText(getString(R.string.office_info_item7));
+                office_address.setText(getString(R.string.office_address_item7));
+                break;
+            case 8:
+                result_name.setText(getString(R.string.office_info_item8));
+                office_address.setText(getString(R.string.office_address_item8));
+                break;
+            case 9:
+                result_name.setText(getString(R.string.office_info_item9));
+                office_address.setText(getString(R.string.office_address_item9));
+                break;
+
+            default:
+                System.out.println("Unable to get a office name");
+                break;
+        }
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
     }
     /*
     public void onClick_1st (View v){
@@ -658,6 +913,29 @@ public class reservationActivity extends AppCompatActivity {
             output.append((char) Integer.parseInt(str, 16));
         }
         return output.toString();
+    }
+
+    public static byte[] hexStringToByteArray(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16));
+        }
+        return data;
+    }
+
+
+    public static String byteArrayToHexString(byte[] bytes){
+
+        StringBuilder sb = new StringBuilder();
+
+        for(byte b : bytes){
+
+            sb.append(String.format("%02X", b&0xff));
+        }
+
+        return sb.toString();
     }
 
     private static IntentFilter makeGattUpdateIntentFilter() {

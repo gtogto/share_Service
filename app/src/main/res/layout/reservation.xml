@@ -159,6 +159,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/device_name"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -209,11 +210,12 @@
                         android:src="@drawable/map_pin_img"></ImageView>
 
                     <TextView
+                        android:id="@+id/office_address"
                         android:layout_width="290dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
                         android:layout_toRightOf="@+id/address_btn"
-                        android:text="@string/reservation_address_1"
+                        android:text="@string/office_address_item1"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -268,6 +270,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/result_check_in_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -279,6 +282,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/result_check_out_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/reservation_checkout_date"
@@ -412,17 +416,18 @@
                     android:background="@color/color_whiteGray1" />
 
                 <Button
-                    android:id="@+id/mseond_PW"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:paddingRight="20dip"
-                    android:drawableRight="@drawable/secure_key_icon"
-                    android:text="@string/reservation_door_Open"
-                    >
+                android:id="@+id/mseond_PW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:paddingRight="20dip"
+                android:drawableRight="@drawable/secure_key_icon"
+                android:onClick="onClick_toDoor"
+                android:text="@string/reservation_door_Open"
+                >
+            </Button>
 
-                </Button>
 
             </LinearLayout>
 

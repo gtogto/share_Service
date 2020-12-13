@@ -350,7 +350,6 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
         return sb.toString();
     }
 
-
     public BluetoothGattCharacteristic getNottifyCharacteristic(){
 
         BluetoothGattCharacteristic notifyCharacteristic = null;

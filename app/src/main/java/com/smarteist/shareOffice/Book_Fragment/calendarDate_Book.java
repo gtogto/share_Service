@@ -1,5 +1,6 @@
 package com.smarteist.shareOffice.Book_Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -33,15 +34,18 @@ public class calendarDate_Book extends AppCompatActivity {
     book_Fragment_1 book_fragment_1;
     book_Fragment_2 book_fragment_2;
 
-    private static int Office_Name_Num;
+    public static int Office_Name_Num;
     private static TextView result_name,
             result_check_in_time, result_check_out_time, get_user_name;
-    private String get_date_Start, get_date_End;
+    public static String get_date_Start, get_date_End;
+    public static Activity calendarDate_Book;
+    public static String DEVICE_NUMBER;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_layout);
+        calendarDate_Book = calendarDate_Book.this;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.color_White));
@@ -92,8 +96,6 @@ public class calendarDate_Book extends AppCompatActivity {
 
             }
         });
-
-
 
 //        ArrayList<String> weekDay = new ArrayList<>();
 //        weekDay.add("M");
@@ -190,16 +192,40 @@ public class calendarDate_Book extends AppCompatActivity {
         switch (Office_Name_Num) {
             case 1:
                 result_name.setText("코워킹스페이스 GARAGE 강남점");
+                DEVICE_NUMBER = getString(R.string.deviceNo_1);
                 break;
-
             case 2:
                 result_name.setText("비라운지 강남점");
+                DEVICE_NUMBER = getString(R.string.deviceNo_2);
                 break;
-
             case 3:
                 result_name.setText("토즈워크센터 강남점");
+                DEVICE_NUMBER = getString(R.string.deviceNo_3);
                 break;
-
+            case 4:
+                result_name.setText(getString(R.string.office_info_item4));
+                DEVICE_NUMBER = getString(R.string.deviceNo_4);
+                break;
+            case 5:
+                result_name.setText(getString(R.string.office_info_item5));
+                DEVICE_NUMBER = getString(R.string.deviceNo_5);
+                break;
+            case 6:
+                result_name.setText(getString(R.string.office_info_item6));
+                DEVICE_NUMBER = getString(R.string.deviceNo_6);
+                break;
+            case 7:
+                result_name.setText(getString(R.string.office_info_item7));
+                DEVICE_NUMBER = getString(R.string.deviceNo_7);
+                break;
+            case 8:
+                result_name.setText(getString(R.string.office_info_item8));
+                DEVICE_NUMBER = getString(R.string.deviceNo_8);
+                break;
+            case 9:
+                result_name.setText(getString(R.string.office_info_item9));
+                DEVICE_NUMBER = getString(R.string.deviceNo_9);
+                break;
             default:
                 System.out.println("Unable to get a office name");
                 break;
@@ -218,11 +244,15 @@ public class calendarDate_Book extends AppCompatActivity {
     public void onClick_final_book(View v) {
         Intent intent = new Intent(getApplicationContext(), reservationActivity.class);
         startActivity(intent);
+        intent.putExtra("office_Num", Office_Name_Num);
+        //intent.putExtra("sDate", get_date_Start);
+        //intent.putExtra("eDate", get_date_End);
     }
 
+    /*
     public void onClick_btn(View v) {
         Intent intent_1 = new Intent(getApplicationContext(), DeviceScan.class);
         startActivityForResult(intent_1, 201);
-    }
+    }*/
 
 }

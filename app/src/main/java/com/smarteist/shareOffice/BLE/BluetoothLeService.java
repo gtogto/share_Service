@@ -1232,14 +1232,4 @@ public class BluetoothLeService extends Service {
 
     public static final UUID TouchMe_DATA_UUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb"); //jdy bt
 
-    public String byteToBinaryString(byte n) {
-        StringBuilder sb = new StringBuilder("00000000");
-        for (int bit = 0; bit < 8; bit++) {
-            if (((n >> bit) & 1) > 0) {
-                sb.setCharAt(7 - bit, '1');
-            }
-        }
-        return sb.toString();
-    }
-
 }

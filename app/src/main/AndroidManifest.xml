@@ -38,7 +38,6 @@
 
         <!-- Toolbar BLE Menu -->
 
-
         <activity android:name="com.smarteist.shareOffice.main_page">
         </activity>
 
@@ -85,6 +84,10 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             tools:ignore="Instantiatable" />
 
+        <!-- for BLE Connection API -->
+        <service
+            android:name="com.smarteist.shareOffice.BLE.BluetoothLeService"
+            android:enabled="true" />
 
     </application>
 

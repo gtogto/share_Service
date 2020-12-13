@@ -69,4 +69,39 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <!-- office Full Name list-->
+    <string name="office_info_item1">코워킹스페이스 GARAGE Seoul 강남점</string>
+    <string name="office_info_item2">비라운지 스터디클럽 홍대점</string>
+    <string name="office_info_item3">TOZ BusinessCenter 강남2호점</string>
+    <string name="office_info_item4">유스페이스1 사무실 분당판교점</string>
+    <string name="office_info_item5">오피스5 풀네임 용도 위치 지점</string>
+    <string name="office_info_item6">오피스6 풀네임 용도 위치 지점</string>
+    <string name="office_info_item7">오피스7 풀네임 용도 위치 지점</string>
+    <string name="office_info_item8">오피스8 풀네임 용도 위치 지점</string>
+    <string name="office_info_item9">오피스9 풀네임 용도 위치 지점</string>
+
+    <!-- office Full Name list-->
+    <string name="office_address_item1">서울특별시 강남구 역삼동 테헤란로 128 성곡빌딩</string>
+    <string name="office_address_item2">서울특별시 강남구 언주로 866 방우빌딩 2층 비라운지</string>
+    <string name="office_address_item3">서울특별시 강남구 강남대로 320 (역삼동, 황화빌딩) 5층</string>
+    <string name="office_address_item4">성남시 분당구 대왕판교로 712번길 22 A동 6층</string>
+    <string name="office_address_item5">성남시 분당구 대왕판교로 712번길 22 A동 6층</string>
+    <string name="office_address_item6">성남시 분당구 대왕판교로 712번길 22 A동 6층</string>
+    <string name="office_address_item7">성남시 분당구 대왕판교로 712번길 22 A동 6층</string>
+    <string name="office_address_item8">성남시 분당구 대왕판교로 712번길 22 A동 6층</string>
+    <string name="office_address_item9">성남시 분당구 대왕판교로 712번길 22 A동 6층</string>
+
+    <!-- device Number -->
+    <string name="deviceNo_1">50010001</string>
+    <string name="deviceNo_2">50010002</string>
+    <string name="deviceNo_3">50010003</string>
+    <string name="deviceNo_4">50010004</string>
+    <string name="deviceNo_5">50010005</string>
+    <string name="deviceNo_6">50010006</string>
+    <string name="deviceNo_7">50010007</string>
+    <string name="deviceNo_8">50010008</string>
+    <string name="deviceNo_9">50010009</string>
+
+
 </resources>
