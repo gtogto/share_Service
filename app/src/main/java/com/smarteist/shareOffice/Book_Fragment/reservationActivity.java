@@ -134,8 +134,7 @@ public class reservationActivity extends Activity implements View.OnClickListene
 
     private ImageView call_btn;
 
-    private Button mFirst_PW;
-    private Button mSecond_PW;
+    private Button mFirst_PW, mSecond_PW, mOpen_Door;
     private TextView tPairingAuthStatus;
     private TextView tFirst_PW;
     private TextView tSecond_PW;
@@ -270,10 +269,11 @@ public class reservationActivity extends Activity implements View.OnClickListene
         call_btn = (ImageView)findViewById(R.id.call_btn);
 
         mFirst_PW = (Button)findViewById(R.id.mfirst_PW);
-        mSecond_PW = (Button)findViewById(R.id.mseond_PW);
+        mSecond_PW = (Button)findViewById(R.id.mSecond_PW);
+
+        mOpen_Door = (Button)findViewById(R.id.mOpen_Door);
 
         tFirst_PW = (TextView)findViewById(R.id.first_PW);
-        tSecond_PW = (TextView)findViewById(R.id.second_PW);
 
         result_name = (TextView)findViewById(R.id.device_name);
         office_address = (TextView)findViewById(R.id.office_address);
@@ -342,6 +342,15 @@ public class reservationActivity extends Activity implements View.OnClickListene
             }
         });
 
+        mSecond_PW.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Clicked 2nd key button", Toast.LENGTH_LONG).show();
+                mSendWasData = new SendWasData(50010001, 2);
+                mSendWasData.action();
+            }
+        });
+
 
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
@@ -401,8 +410,8 @@ public class reservationActivity extends Activity implements View.OnClickListene
                             }else{
                                 tFirst_PW.setTextColor(Color.parseColor(("blue")));
                                 tFirst_PW.setText("Verified Near Door");
-                                tSecond_PW.setTextColor(Color.parseColor(("blue")));
-                                tSecond_PW.setText("["+instantPassword+"]\n코드를 입력해주세요.");
+                                //tSecond_PW.setTextColor(Color.parseColor(("blue")));
+                                //tSecond_PW.setText("["+instantPassword+"]\n코드를 입력해주세요.");
                                 tFlag = false;
                                 tt.cancel();
                             }
