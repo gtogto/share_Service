@@ -36,6 +36,7 @@
     <string name="reservation_checkout_date">2020-11-01 월</string>
     <string name="reservation_1st_key_request">Request for 1st PASSWORD</string>
     <string name="reservation_1st_key_receive">Receive 1st PASSWORD</string>
+    <string name="reservation_2nd_key_request">Request for 2nd PASSWORD</string>
     <string name="reservation_2nd_key_receive">2nd PASSWORD</string>
     <string name="reservation_door_Open">OPEN Door</string>
 

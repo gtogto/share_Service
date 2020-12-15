@@ -606,6 +606,7 @@ public class reservationActivity extends Activity implements View.OnClickListene
 
     public void onClick_toDoor(View v) {
         // Test Code for SAL_Door, SAL_GW
+        /*
         byte[] cmd_bytes = new byte[10];
         cmd_bytes[0] = 0x5B;
         cmd_bytes[1] = 0x31;
@@ -617,8 +618,8 @@ public class reservationActivity extends Activity implements View.OnClickListene
         cmd_bytes[7] = 0x32;
         cmd_bytes[8] = 0x39;
         cmd_bytes[9] = 0x5D;
-        mBluetoothLeService.writeCharacteristic(getWriteGattCharacteristic(), cmd_bytes);
-        /*
+        mBluetoothLeService.writeCharacteristic(getWriteGattCharacteristic(), cmd_bytes);*/
+
         if (instantPassword.length() == 8) {
 
             byte[] byteArrayForPlain = instantPassword.getBytes();
@@ -636,8 +637,8 @@ public class reservationActivity extends Activity implements View.OnClickListene
 
             byte[] cmd_bytes = new byte[10];
             cmd_bytes[0] = 0x5B;
-            //cmd_bytes[1] = pPW_ByteArray[1];
-            cmd_bytes[1] = 0x32;
+            cmd_bytes[1] = pPW_ByteArray[1];
+            //cmd_bytes[1] = 0x32;
             cmd_bytes[2] = 0x58;
             cmd_bytes[3] = pPW_ByteArray[2];
             cmd_bytes[4] = pPW_ByteArray[3];
@@ -647,7 +648,7 @@ public class reservationActivity extends Activity implements View.OnClickListene
             cmd_bytes[8] = pPW_ByteArray[7];
             cmd_bytes[9] = 0x5D;
             mBluetoothLeService.writeCharacteristic(getWriteGattCharacteristic(), cmd_bytes);
-        }*/
+        }
         /*
         mSendData = new SendData();
         mSendData.start();*/
