@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -34,7 +33,6 @@ import com.smarteist.shareOffice.BLE.BluetoothLeService;
 import com.smarteist.shareOffice.BLE.DeviceScanActivity;
 import com.smarteist.shareOffice.BLE.SampleGattAttributes;
 import com.smarteist.shareOffice.POST.Post;
-import com.smarteist.shareOffice.POST.ReservationPost;
 import com.smarteist.shareOffice.WasService;
 
 import java.net.DatagramPacket;
@@ -44,14 +42,12 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -142,8 +138,8 @@ public class reservationActivity extends Activity implements View.OnClickListene
     int i = 0;
 
     public static String instantPassword;
-    private final String BASE_URL = "http://192.168.0.10:8081";
-    private WasService WasService_Post, SendReservationPost;
+    private final String BASE_URL = "http://192.168.0.10:8081";     // Block-chain Server IP Address
+    private WasService WasService_Post;
 
     // Code to manage Service lifecycle.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -274,6 +270,7 @@ public class reservationActivity extends Activity implements View.OnClickListene
         mOpen_Door = (Button)findViewById(R.id.mOpen_Door);
 
         tFirst_PW = (TextView)findViewById(R.id.first_PW);
+        tSecond_PW = (TextView)findViewById(R.id.tSecond_PW);
 
         result_name = (TextView)findViewById(R.id.device_name);
         office_address = (TextView)findViewById(R.id.office_address);
@@ -412,6 +409,8 @@ public class reservationActivity extends Activity implements View.OnClickListene
                                 tFirst_PW.setText("Verified Near Door");
                                 //tSecond_PW.setTextColor(Color.parseColor(("blue")));
                                 //tSecond_PW.setText("["+instantPassword+"]\n코드를 입력해주세요.");
+                                tSecond_PW.setTextColor(Color.parseColor(("red")));
+                                tSecond_PW.setText("["+instantPassword+"] 2차 인증키 입력");
                                 tFlag = false;
                                 tt.cancel();
                             }
