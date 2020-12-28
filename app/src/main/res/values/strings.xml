@@ -8,11 +8,11 @@
     <string name="office_name_item2">[홍대역] 비라운지</string>
     <string name="office_name_item3">[강남역] 토즈워크</string>
     <string name="office_name_item4">[판교] 유스페이스</string>
-    <string name="office_name_item5">[세글자] 네글자가</string>
-    <string name="office_name_item6">[두자] 다섯글자가</string>
-    <string name="office_name_item7">[세글자] 네글자가</string>
-    <string name="office_name_item8">[두자] 다섯글자가</string>
-    <string name="office_name_item9">[세글자] 네글자가</string>
+    <string name="office_name_item5">[야탑] 메종드베르</string>
+    <string name="office_name_item6">[모란역] 삼보빌딩</string>
+    <string name="office_name_item7">[정자역] 킨스타워</string>
+    <string name="office_name_item8">[여의도] 유진빌딩</string>
+    <string name="office_name_item9">[판교] 알파돔시티</string>
 
 
     <!-- activity_main.xml -->
