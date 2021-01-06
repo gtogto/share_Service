@@ -124,6 +124,11 @@ public class main_page extends AppCompatActivity {
             case R.id.account:
                 Toast.makeText(getApplicationContext(), "Account menu", Toast.LENGTH_LONG).show();
                 return true;
+            case R.id.register:
+                final Intent intent = new Intent(this, office_registerActivity.class);
+                Toast.makeText(getApplicationContext(), "제품 등록 액티비티", Toast.LENGTH_LONG).show();
+                startActivity(intent);
+                return true;
 
             case R.id.logout:
                 Toast.makeText(getApplicationContext(), "Log-out menu", Toast.LENGTH_LONG).show();

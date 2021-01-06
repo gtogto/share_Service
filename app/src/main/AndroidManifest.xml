@@ -66,9 +66,7 @@
         <activity android:name="com.smarteist.shareOffice.Book_Fragment.calendarDate_Book"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-        <activity android:name="com.smarteist.shareOffice.Book_img_2"/>
-        <activity android:name="com.smarteist.shareOffice.Book_img_3"/>
-        <activity android:name="com.smarteist.shareOffice.Book_img_4"/>
+        <activity android:name="com.smarteist.shareOffice.office_registerActivity"/>
 
         <activity android:name="com.smarteist.shareOffice.Book_Fragment.reservationActivity"/>
 
