@@ -15,7 +15,7 @@
     <string name="office_name_item9">[판교] 알파돔시티</string>
 
 
-    <!-- activity_main.xml -->
+    <!-- activity_main xml -->
     <string name="office_information_1">
         · 이용시간 : 08:00 | 퇴실시간 : 22:00\n· Free WiFi\n· 전 객실 금연\n</string>
     <string name="office_information_2">

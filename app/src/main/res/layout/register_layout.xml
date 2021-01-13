@@ -2,10 +2,276 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F0F5FB">
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_purple2"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingRight="15dp"
+                android:layout_alignParentRight="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="완료"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        app:fontFamily="sans-serif-black"
+                        android:textSize="15sp">
+                    </TextView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:id="@+id/map_mainActivity"
+            android:layout_below="@id/line_0"
+            android:orientation="vertical">
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_White"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/r1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/cam_icon"></ImageView>
+                    <!--
+                    <ImageView
+                        android:id="@+id/r2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:src="@drawable/register_picture1"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/r3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="160dp"
+                        android:src="@drawable/register_picture2"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/r4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="220dp"
+                        android:src="@drawable/register_picture3"></ImageView>
+                        -->
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_whiteGray1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="3dp"
+                android:background="@color/color_White">
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:ems="15"
+                    android:gravity="left"
+                    android:hint="제목"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    android:background="@null"
+                    android:textColorHint="@color/color_whiteGray1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="3dp"
+                android:background="@color/color_White">
+
+                <TextView
+                    android:id="@+id/office_info_txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기본 정보"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    app:fontFamily="sans-serif-black"
+                    android:textSize="17sp">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/office_info_sub1_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="default information\n"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="15sp">
+                </TextView>
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:ems="15"
+                    android:gravity="left"
+                    android:hint="제품 정보를 등록해 주세요"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    android:background="@null"
+                    android:textColorHint="@color/color_whiteGray1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_whiteGray1" />
+
+                <TextView
+                    android:id="@+id/office_info_txt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주차 정보"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    app:fontFamily="sans-serif-black"
+                    android:textSize="17sp">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/office_info_sub2_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="default information\n"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="15sp">
+                </TextView>
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:ems="15"
+                    android:gravity="left"
+                    android:hint="주차장 정보 등록해 주세요"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    android:background="@null"
+                    android:textColorHint="@color/color_whiteGray1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_whiteGray1" />
+
+                <TextView
+                    android:id="@+id/office_info_txt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="확인사항 및 기타"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    app:fontFamily="sans-serif-black"
+                    android:textSize="17sp">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/office_info_sub3_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="default information\n"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="15sp">
+                </TextView>
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:lines="8"
+                    android:ems="15"
+                    android:gravity="left"
+                    android:hint="제품 사용 법, 제품 관리 법 등 주의 사항에 대해 작성해주세요."
+                    android:inputType="textMultiLine"
+                    android:textSize="20sp"
+                    android:background="@null"
+                    android:textColorHint="@color/color_whiteGray1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_whiteGray1" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@color/color_Black"
+                android:text="Copyright ⓒ K.E.T.I and Vizming. All right Reserved."
+                >
+            </TextView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

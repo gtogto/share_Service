@@ -215,7 +215,7 @@
             android:layout_height="wrap_content"
             android:onClick="onClick_Book"
             android:text="예약 하기">
-        </Button>
+            </Button>
 
         </LinearLayout>
 

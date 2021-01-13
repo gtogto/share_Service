@@ -23,8 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import static com.kakao.usermgmt.StringSet.nickname;
-
 public class main_page extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
@@ -38,7 +36,7 @@ public class main_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_page_layout);
+        setContentView(R.layout.office_list_firstpage);
 
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
