@@ -73,7 +73,7 @@ If you are using appcompat libraries use this one, but please migrate to android
 
 
 ## ScreenShot
-![](https://user-images.githubusercontent.com/30851459/98619325-5c68ff80-2346-11eb-8c01-0964b148221e.png)
+![](https://user-images.githubusercontent.com/30851459/104895673-83ccf000-59b9-11eb-829c-b3036118d830.png)
 
 ## Integration guide
 
