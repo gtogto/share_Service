@@ -1,5 +1,5 @@
 # Android image slider(for S.A.L Project)
-### 2020.10.27 by.gto
+### 2021.01.21 by.gto
 [ ![Download](https://api.bintray.com/packages/smarteistbintray/android/androidautoimageslider/images/download.svg) ](https://github.com/gtogto/share_Service)[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android%20Slider-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7693)  [![Apk](https://img.shields.io/badge/download-apk-yellowgreen.svg)](https://raw.githubusercontent.com/android-arsenal/apk31/master/7693/app.apk)
 
 [![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=15)
@@ -257,11 +257,9 @@ Here is a more realistic and more complete example :
 ## Contribute
 
 Suggestions and pull requests are always welcome.
-Special Thanks [Roman Danylyk] (https://github.com/romandanylyk) for nice indicator!
+Special Thanks [Gyutae OH] (https://github.com/gtogto/) for nice indicator!
 
 ## Licence
-
-Copyright [2019] [Ali Hosseini]
 
    Licensed under the Apache License, Version 2.0;
    you may not use this file except in compliance with the License.
